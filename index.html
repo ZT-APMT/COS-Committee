@@ -3,52 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COS Committee - Comité des Œuvres Sociales</title>
+    <title>COS Committee - APM Terminals MedPort Tangier</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #1e3a5f;
-            --secondary: #2c5f7c;
-            --accent: #0891b2;
+            --secondary: #2d5a8f;
+            --accent: #4a90e2;
             --text: #1f2937;
             --text-light: #6b7280;
             --bg: #ffffff;
             --bg-light: #f9fafb;
             --border: #e5e7eb;
-            
-            /* Project colors */
-            --education: #3b82f6;
-            --health: #ef4444;
-            --sports: #10b981;
-            --family: #f59e0b;
-            --travel: #8b5cf6;
-            --insurance: #ec4899;
-            --communication: #06b6d4;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background: var(--bg);
         }
-
-        /* Navigation */
         nav {
             background: var(--primary);
             color: white;
             padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -57,32 +38,20 @@
             justify-content: space-between;
             align-items: center;
         }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: white;
-        }
-
+        .logo { font-size: 1.5rem; font-weight: 700; }
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
         }
-
         .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: opacity 0.3s;
         }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .mobile-toggle {
+        .nav-links a:hover { opacity: 0.8; }
+        .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
@@ -90,553 +59,216 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-
-        /* Hero */
         .hero {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             padding: 6rem 2rem;
             text-align: center;
         }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            opacity: 0.95;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        section {
-            margin-bottom: 4rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto; opacity: 0.95; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .section { margin-bottom: 4rem; }
+        .section-title {
+            font-size: 2rem;
             color: var(--primary);
+            margin-bottom: 2rem;
             text-align: center;
         }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-        }
-
-        /* Projects Grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
-
         .project-card {
             background: white;
             border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid;
-            text-decoration: none;
-            color: inherit;
-            display: block;
+            cursor: pointer;
+            border-top: 4px solid var(--accent);
         }
-
         .project-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
-
-        .project-card.education { border-color: var(--education); }
-        .project-card.health { border-color: var(--health); }
-        .project-card.sports { border-color: var(--sports); }
-        .project-card.family { border-color: var(--family); }
-        .project-card.travel { border-color: var(--travel); }
-        .project-card.insurance { border-color: var(--insurance); }
-        .project-card.communication { border-color: var(--communication); }
-
-        .project-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .education .project-icon { background: rgba(59, 130, 246, 0.1); }
-        .health .project-icon { background: rgba(239, 68, 68, 0.1); }
-        .sports .project-icon { background: rgba(16, 185, 129, 0.1); }
-        .family .project-icon { background: rgba(245, 158, 11, 0.1); }
-        .travel .project-icon { background: rgba(139, 92, 246, 0.1); }
-        .insurance .project-icon { background: rgba(236, 72, 153, 0.1); }
-        .communication .project-icon { background: rgba(6, 182, 212, 0.1); }
-
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary);
-        }
-
-        .project-card p {
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-
-        /* Partners */
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .partner-category {
+        .project-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .project-title { font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .project-desc { color: var(--text-light); line-height: 1.6; }
+        .cta-section {
             background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 8px;
+            padding: 3rem 2rem;
+            border-radius: 12px;
             text-align: center;
         }
-
-        .partner-category h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .partner-count {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Team */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
             margin-top: 2rem;
         }
-
-        .team-member {
-            background: white;
-            padding: 1.5rem;
+        .btn {
+            padding: 1rem 2rem;
             border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
         }
-
-        .team-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--accent);
+        .btn-primary {
+            background: var(--primary);
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 0 auto 1rem;
         }
-
-        .team-member h4 {
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: white;
             color: var(--primary);
-            margin-bottom: 0.25rem;
+            border: 2px solid var(--primary);
         }
-
-        .team-member p {
-            color: var(--text-light);
-            font-size: 0.9rem;
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
         }
-
-        /* Footer */
         footer {
             background: var(--primary);
             color: white;
-            padding: 3rem 2rem 1.5rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
+            padding: 2rem;
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.7);
         }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .nav-links { display: none; }
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 right: 0;
                 background: var(--primary);
-                flex-direction: column;
                 padding: 1rem 2rem;
                 gap: 1rem;
             }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">COS Committee</a>
-            <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
-            <ul class="nav-links">
+            <div class="logo">COS Committee</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#partners">Partners</a></li>
+                <li><a href="partners.html">Partners</a></li>
                 <li><a href="news.html">News</a></li>
-                <li><a href="#team">Team</a></li>
             </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>Comité des Œuvres Sociales</h1>
-        <p>Enhancing employee well-being through comprehensive social programs, partnerships, and community engagement</p>
-        <div class="hero-stats">
-            <div class="stat">
-                <span class="stat-number">7</span>
-                <span class="stat-label">Active Projects</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">50+</span>
-                <span class="stat-label">Partner Organizations</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">12</span>
-                <span class="stat-label">Committee Members</span>
-            </div>
-        </div>
+    <header class="hero" id="home">
+        <h1>COS Committee</h1>
+        <p>Comité des Œuvres Sociales - APM Terminals MedPort Tangier<br>Enhancing employee wellbeing through comprehensive social programs</p>
     </header>
 
     <main class="container">
-        <section id="about">
-            <h2>About COS Committee</h2>
-            <p class="section-subtitle">Dedicated to improving the quality of life for employees and their families</p>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.8;">
-                <p>The Comité des Œuvres Sociales (COS) is committed to enhancing employee well-being through a comprehensive range of social programs and benefits. Established to support APM Terminals MedPort Tangier employees and their families, we work tirelessly to provide access to education, healthcare, sports facilities, family benefits, travel opportunities, insurance services, and transparent communication.</p>
-            </div>
+        <section class="section" id="about">
+            <h2 class="section-title">About COS Committee</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-light); font-size: 1.1rem;">
+                The COS Committee is dedicated to improving the quality of life for APM Terminals MedPort Tangier employees and their families through various social programs, partnerships, and benefits.
+            </p>
         </section>
 
-        <section id="projects">
-            <h2>Our Projects</h2>
-            <p class="section-subtitle">Seven comprehensive initiatives designed to support every aspect of employee well-being</p>
+        <section class="section" id="projects">
+            <h2 class="section-title">Our Projects</h2>
             <div class="projects-grid">
-                <a href="education.html" class="project-card education">
-                    <div class="project-icon">📚</div>
-                    <h3>Education & Training</h3>
-                    <p>Language courses, professional development, and school partnerships with financial support for continuous learning.</p>
-                    <span class="project-link">Learn more →</span>
+                <a href="education.html" style="text-decoration: none; color: inherit;">
+                    <div class="project-card" style="border-top-color: #8b5cf6;">
+                        <div class="project-icon">📚</div>
+                        <h3 class="project-title">Education & Training</h3>
+                        <p class="project-desc">Language courses and professional development programs with leading institutions.</p>
+                    </div>
                 </a>
-
-                <a href="health.html" class="project-card health">
-                    <div class="project-icon">🏥</div>
-                    <h3>Health</h3>
-                    <p>Medical partnerships with clinics, laboratories, and specialists offering accessible and affordable healthcare services.</p>
-                    <span class="project-link">Learn more →</span>
+                
+                <a href="health.html" style="text-decoration: none; color: inherit;">
+                    <div class="project-card" style="border-top-color: #10b981;">
+                        <div class="project-icon">🏥</div>
+                        <h3 class="project-title">Health Services</h3>
+                        <p class="project-desc">Comprehensive healthcare partnerships with top medical facilities in Tangier.</p>
+                    </div>
                 </a>
-
-                <a href="sports.html" class="project-card sports">
-                    <div class="project-icon">⚽</div>
-                    <h3>Sports & Wellbeing</h3>
-                    <p>Access to gyms, sports facilities, and wellness activities promoting healthy lifestyles and social engagement.</p>
-                    <span class="project-link">Learn more →</span>
+                
+                <a href="sports.html" style="text-decoration: none; color: inherit;">
+                    <div class="project-card" style="border-top-color: #f59e0b;">
+                        <div class="project-icon">⚽</div>
+                        <h3 class="project-title">Sports & Wellbeing</h3>
+                        <p class="project-desc">Fitness programs and sports activities to promote healthy lifestyles.</p>
+                    </div>
                 </a>
-
-                <a href="family.html" class="project-card family">
-                    <div class="project-icon">👨‍👩‍👧‍👦</div>
-                    <h3>Family & Social Benefits</h3>
-                    <p>Housing and car purchase programs, seasonal allowances, and family-oriented benefits for work-life balance.</p>
-                    <span class="project-link">Learn more →</span>
+                
+                <a href="family.html" style="text-decoration: none; color: inherit;">
+                    <div class="project-card" style="border-top-color: #ef4444;">
+                        <div class="project-icon">👨‍👩‍👧‍👦</div>
+                        <h3 class="project-title">Family & Social Benefits</h3>
+                        <p class="project-desc">Support programs for families including summer camps and childcare services.</p>
+                    </div>
                 </a>
-
-                <a href="travel.html" class="project-card travel">
-                    <div class="project-icon">✈️</div>
-                    <h3>Travel</h3>
-                    <p>Cultural trips, Omra programs, and leisure activities with preferential rates for enriching experiences.</p>
-                    <span class="project-link">Learn more →</span>
+                
+                <a href="travel.html" style="text-decoration: none; color: inherit;">
+                    <div class="project-card" style="border-top-color: #3b82f6;">
+                        <div class="project-icon">✈️</div>
+                        <h3 class="project-title">Travel Programs</h3>
+                        <p class="project-desc">Organized travel opportunities including Omra pilgrimage and vacation packages.</p>
+                    </div>
                 </a>
-
-                <a href="insurance.html" class="project-card insurance">
-                    <div class="project-icon">🛡️</div>
-                    <h3>Insurance Services</h3>
-                    <p>Comprehensive auto, life, and travel insurance coverage ensuring security and peace of mind.</p>
-                    <span class="project-link">Learn more →</span>
+                
+                <a href="insurance.html" style="text-decoration: none; color: inherit;">
+                    <div class="project-card" style="border-top-color: #ec4899;">
+                        <div class="project-icon">🛡️</div>
+                        <h3 class="project-title">Insurance Services</h3>
+                        <p class="project-desc">Comprehensive insurance coverage for auto, life, and travel protection.</p>
+                    </div>
                 </a>
-
-                <a href="communication.html" class="project-card communication">
-                    <div class="project-icon">📢</div>
-                    <h3>Communication</h3>
-                    <p>Transparent updates through newsletters, digital platforms, and regular engagement to keep employees informed.</p>
-                    <span class="project-link">Learn more →</span>
+                
+                <a href="communication.html" style="text-decoration: none; color: inherit;">
+                    <div class="project-card" style="border-top-color: #06b6d4;">
+                        <div class="project-icon">📢</div>
+                        <h3 class="project-title">Communication</h3>
+                        <p class="project-desc">Transparent updates and digital platforms to keep employees informed.</p>
+                    </div>
                 </a>
             </div>
         </section>
 
-        <section id="partners">
-            <h2>Our Partners</h2>
-            <p class="section-subtitle">Collaborating with leading institutions across Tangier, Tétouan, and Fnideq</p>
-            <div class="partners-grid">
-                <div class="partner-category">
-                    <span class="partner-count">15+</span>
-                    <h4>Educational Institutions</h4>
-                    <p>Language centers, universities, and schools</p>
-                </div>
-                <div class="partner-category">
-                    <span class="partner-count">20+</span>
-                    <h4>Healthcare Providers</h4>
-                    <p>Clinics, laboratories, and specialists</p>
-                </div>
-                <div class="partner-category">
-                    <span class="partner-count">15+</span>
-                    <h4>Sports Facilities</h4>
-                    <p>Gyms, football centers, and wellness venues</p>
-                </div>
-                <div class="partner-category">
-                    <span class="partner-count">5+</span>
-                    <h4>Travel & Insurance</h4>
-                    <p>Agencies, ferry companies, and insurers</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="team">
-            <h2>Committee Members</h2>
-            <p class="section-subtitle">Dedicated professionals working to enhance employee well-being</p>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="team-avatar">MA</div>
-                    <h4>Mohamed Agour</h4>
-                    <p>Committee Member</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">IA</div>
-                    <h4>Ilham Az-Eddine</h4>
-                    <p>Committee Member</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">EA</div>
-                    <h4>Eatimade Azaiko</h4>
-                    <p>Committee Member</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">AS</div>
-                    <h4>Abderrahman Saoud</h4>
-                    <p>Committee Member</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">MF</div>
-                    <h4>Mohamed Said Filaghi</h4>
-                    <p>Committee Member</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">AE</div>
-                    <h4>Ayman El Haddad</h4>
-                    <p>Committee Member</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">HB</div>
-                    <h4>Hamza Baida</h4>
-                    <p>Committee Member</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">MS</div>
-                    <h4>Mohammed Saoud</h4>
-                    <p>Committee Member</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">SE</div>
-                    <h4>Soufian El Jami</h4>
-                    <p>Committee Member</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">SM</div>
-                    <h4>Salah Eddine Mhamed Zaahair</h4>
-                    <p>Committee Member</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">AA</div>
-                    <h4>Anas Alami</h4>
-                    <p>Committee Member</p>
-                </div>
-                <div class="team-member">
-                    <div class="team-avatar">ZT</div>
-                    <h4>Zakaria Tagdimi</h4>
-                    <p>Committee Member</p>
-                </div>
+        <section class="cta-section">
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">Explore Our Resources</h2>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">Learn more about our partners and stay updated with the latest news</p>
+            <div class="cta-buttons">
+                <a href="partners.html" class="btn btn-primary">View All Partners</a>
+                <a href="news.html" class="btn btn-secondary">Latest News</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>COS Committee</h3>
-                <p>Comité des Œuvres Sociales<br>APM Terminals MedPort Tangier<br>Tangier, Morocco</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="news.html">News & Updates</a></li>
-                    <li><a href="#team">Our Team</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Projects</h3>
-                <ul>
-                    <li><a href="education.html">Education & Training</a></li>
-                    <li><a href="health.html">Health</a></li>
-                    <li><a href="sports.html">Sports & Wellbeing</a></li>
-                    <li><a href="family.html">Family Benefits</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>More Projects</h3>
-                <ul>
-                    <li><a href="travel.html">Travel</a></li>
-                    <li><a href="insurance.html">Insurance</a></li>
-                    <li><a href="communication.html">Communication</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 COS Committee - APM Terminals MedPort Tangier. All rights reserved. </p>
-        </div>
+        <p>&copy; 2025 COS Committee - APM Terminals MedPort Tangier. All rights reserved.</p>
     </footer>
 
     <script>
-        // Mobile navigation toggle
-        document.querySelector('.mobile-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href.length > 1) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                        document.querySelector('.nav-links').classList.remove('active');
-                    }
-                }
-            });
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
     </script>
 </body>
