@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health - COS Committee</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a5f;
+            --project-color: #ef4444;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg-light);
+        }
+
+        nav {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--project-color) 0%, #dc2626 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--project-color);
+        }
+
+        h3 {
+            color: var(--project-color);
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .objective {
+            background: rgba(239, 68, 68, 0.05);
+            border-left: 4px solid var(--project-color);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .objective strong {
+            color: var(--project-color);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: var(--bg-light);
+        }
+
+        .team-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .team-member {
+            background: var(--bg-light);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--project-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <div class="logo">COS Committee</div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-icon">🏥</div>
+        <h1>Health Services</h1>
+        <p>Ensuring physical well-being through accessible and affordable healthcare partnerships</p>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <div class="objective">
+                <strong>Objective</strong>
+                To ensure the physical well-being of employees and their families by establishing medical partnerships with clinics, laboratories, and specialists, offering accessible and affordable healthcare services, and promoting preventive health measures.
+            </div>
+
+            <h2>Program Description</h2>
+            <p>The health project focuses on ensuring employees and their families have access to quality medical services. It involves creating partnerships with clinics and laboratories in Tangier and Tétouan, such as Clinique International, Akdital Razi, and Bio Center.</p>
+            
+            <p>The initiative also includes building a network of specialists—Dentists, Ophthalmologists, and Opticians—who will provide services at preferential rates. The health committee is responsible for compiling a comprehensive directory of these providers and negotiating agreements that guarantee affordability and convenience. This project is essential for reducing the financial burden of healthcare.</p>
+        </section>
+
+        <section class="section">
+            <h2>Healthcare Partners & Services</h2>
+
+            <h3>Medical Clinics - Tangier</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clinic Name</th>
+                        <th>Location</th>
+                        <th>Services Offered</th>
+                        <th>Specialties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Clinique International</strong></td>
+                        <td>Tangier</td>
+                        <td>General medicine, Emergency care, Surgery, Maternity</td>
+                        <td>Multi-specialty clinic with 24/7 emergency services</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ibn Sina Clinic</strong></td>
+                        <td>Tangier</td>
+                        <td>Consultations, Diagnostics, Minor procedures</td>
+                        <td>General practice, Pediatrics, Internal medicine</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Akdital Razi</strong></td>
+                        <td>Tangier</td>
+                        <td>Comprehensive medical services, Imaging, Laboratory</td>
+                        <td>Cardiology, Orthopedics, Gynecology, Radiology</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clinique Spartel</strong></td>
+                        <td>Tangier</td>
+                        <td>Outpatient care, Specialist consultations</td>
+                        <td>Dermatology, ENT, Ophthalmology</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Medical Clinics - Tétouan</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clinic Name</th>
+                        <th>Location</th>
+                        <th>Services Offered</th>
+                        <th>Specialties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Clinique International</strong></td>
+                        <td>Tétouan</td>
+                        <td>General medicine, Surgery, Emergency services</td>
+                        <td>Multi-specialty care, Maternity ward</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AKDITAL Tétouan</strong></td>
+                        <td>Tétouan</td>
+                        <td>Full medical services, Diagnostics, Treatment</td>
+                        <td>Comprehensive healthcare facility</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Medical Laboratories - Tangier</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Laboratory Name</th>
+                        <th>Location</th>
+                        <th>Services Offered</th>
+                        <th>Turnaround Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Laboratoire Derdabi</strong></td>
+                        <td>Tangier</td>
+                        <td>Blood tests, Urine analysis, Biochemistry, Hematology</td>
+                        <td>Same day for routine tests</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bio Center</strong></td>
+                        <td>Tangier</td>
+                        <td>Complete diagnostic testing, Microbiology, Serology</td>
+                        <td>24-48 hours for specialized tests</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Laboratoire El Hakim</strong></td>
+                        <td>Tangier</td>
+                        <td>Clinical pathology, Immunology, Hormonal tests</td>
+                        <td>Express service available</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Laboratoire Zeroual</strong></td>
+                        <td>Tangier</td>
+                        <td>General medical testing, PCR tests, Allergy testing</td>
+                        <td>Same day results</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Medical Laboratories - Tétouan</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Laboratory Name</th>
+                        <th>Location</th>
+                        <th>Services Offered</th>
+                        <th>Turnaround Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Laboratoire Rif</strong></td>
+                        <td>Tétouan</td>
+                        <td>Comprehensive testing, Blood work, Diagnostics</td>
+                        <td>Same day service</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Laboratoire Chamal</strong></td>
+                        <td>Tétouan</td>
+                        <td>Clinical analysis, Bacteriology, Parasitology</td>
+                        <td>24-48 hours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Laboratoire Annakhil</strong></td>
+                        <td>Tétouan</td>
+                        <td>Medical testing, Biochemistry, Immunology</td>
+                        <td>Express available</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Laboratoire Ibn Nafiss</strong></td>
+                        <td>Tétouan</td>
+                        <td>Full diagnostic services, Molecular biology</td>
+                        <td>Same day for routine</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Laboratoire Avenue FARs</strong></td>
+                        <td>Tétouan</td>
+                        <td>General medical testing, Specialized diagnostics</td>
+                        <td>24 hours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Laboratoire El Fihri</strong></td>
+                        <td>Tétouan</td>
+                        <td>Clinical pathology, Hematology, Chemistry</td>
+                        <td>Same day results</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Specialist Services</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Specialty</th>
+                        <th>Provider Status</th>
+                        <th>Services Included</th>
+                        <th>Expected Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Dental Care</strong></td>
+                        <td>To be defined</td>
+                        <td>General dentistry, Orthodontics, Cosmetic procedures, Emergency care</td>
+                        <td>Preferential rates, Priority appointments</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ophthalmology</strong></td>
+                        <td>To be defined</td>
+                        <td>Eye examinations, Vision correction, Eye disease treatment</td>
+                        <td>Discounted consultations and procedures</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Optician Services</strong></td>
+                        <td>To be defined</td>
+                        <td>Prescription glasses, Contact lenses, Eye care products</td>
+                        <td>Special pricing on frames and lenses</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Physical Therapy</strong></td>
+                        <td>To be defined</td>
+                        <td>Rehabilitation, Sports injuries, Chronic pain management</td>
+                        <td>Reduced session rates</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Responsible Team</h2>
+            <p>The following committee members are dedicated to managing and coordinating the Health project:</p>
+            <div class="team-list">
+                <div class="team-member">Soufian El Jami</div>
+                <div class="team-member">Eatimade Azaiko</div>
+                <div class="team-member">Anas Alami</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>How to Access Healthcare Services</h2>
+            <ol style="line-height: 2; margin-left: 1.5rem;">
+                <li>Contact the COS Health Committee for the complete provider directory</li>
+                <li>Choose your preferred clinic, laboratory, or specialist from the partner list</li>
+                <li>Mention your COS membership when booking appointments</li>
+                <li>Present your employee ID at the facility to receive preferential rates</li>
+                <li>Keep all receipts and documentation for reimbursement if applicable</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer style="background: var(--primary); color: white; padding: 2rem; text-align: center; margin-top: 3rem;">
+        <p>&copy; 2025 COS Committee - APM Terminals MedPort Tangier | <a href="index.html" style="color: white;">Back to Home</a></p>
+    </footer>
+</body>
+</html>
