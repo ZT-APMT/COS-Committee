@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports & Wellbeing - COS Committee</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a5f;
+            --project-color: #10b981;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg-light);
+        }
+
+        nav {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--project-color) 0%, #059669 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--project-color);
+        }
+
+        h3 {
+            color: var(--project-color);
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .objective {
+            background: rgba(16, 185, 129, 0.05);
+            border-left: 4px solid var(--project-color);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .objective strong {
+            color: var(--project-color);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: var(--bg-light);
+        }
+
+        .team-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .team-member {
+            background: var(--bg-light);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--project-color);
+        }
+
+        .highlight-box {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            color: #059669;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <div class="logo">COS Committee</div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-icon">⚽</div>
+        <h1>Sports & Wellbeing</h1>
+        <p>Promoting healthy lifestyles through fitness programs and wellness activities</p>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <div class="objective">
+                <strong>Objective</strong>
+                To promote a healthy and active lifestyle among employees by facilitating access to sports facilities, fitness programs, and wellness activities, fostering both physical health and social engagement within the company community.
+            </div>
+
+            <h2>Program Description</h2>
+            <p>This project promotes a healthy lifestyle by encouraging physical activity and mental wellness. It includes partnerships with gyms, football centers, and recreational facilities across Tangier, Tétouan, and Fnideq.</p>
+            
+            <div class="highlight-box">
+                <strong>📅 Monthly Activity Calendar</strong>
+                A monthly activity calendar will be published to keep everyone engaged with upcoming events, group activities, and wellness programs.
+            </div>
+
+            <p>Employees will have access to discounted memberships at popular gyms like Olympic, Energym, and FitOne, as well as opportunities to participate in football leagues, yoga sessions, biking events, and dance classes. The goal is to create a vibrant community where employees can stay active, reduce stress, and build social connections outside the workplace.</p>
+        </section>
+
+        <section class="section">
+            <h2>Sports & Wellness Partners</h2>
+
+            <h3>Football Facilities</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Provider Status</th>
+                        <th>Services Offered</th>
+                        <th>Expected Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tangier</strong></td>
+                        <td>To be defined</td>
+                        <td>Football pitch rental, League organization, Equipment</td>
+                        <td>Discounted rates, Priority booking, Team jerseys</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tétouan</strong></td>
+                        <td>To be defined</td>
+                        <td>Football facilities, Tournament hosting</td>
+                        <td>Group rates, Flexible scheduling</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fnideq</strong></td>
+                        <td>To be defined</td>
+                        <td>Sports complex access, Football fields</td>
+                        <td>Member pricing, Event organization</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Fitness Centers - Tangier</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gym Name</th>
+                        <th>Location</th>
+                        <th>Facilities & Services</th>
+                        <th>Membership Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Olympic Gym</strong></td>
+                        <td>Tangier</td>
+                        <td>Weight training, Cardio equipment, Group classes, Personal training</td>
+                        <td>Monthly, Quarterly, Annual memberships with COS discount</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Budoo Fitness</strong></td>
+                        <td>Tangier</td>
+                        <td>Modern equipment, Functional training, Nutrition counseling</td>
+                        <td>Flexible plans, Family packages available</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Energym</strong></td>
+                        <td>Tangier</td>
+                        <td>Full gym facilities, CrossFit area, Spinning classes</td>
+                        <td>Preferential rates for COS members</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Flora Fitness</strong></td>
+                        <td>Tangier</td>
+                        <td>Women-only sections, Yoga, Pilates, Zumba</td>
+                        <td>Special women's programs, Group discounts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jimmy's Gym</strong></td>
+                        <td>Tangier</td>
+                        <td>Bodybuilding, Powerlifting, Cardio zone</td>
+                        <td>Competitive pricing, No joining fee</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Fitness Centers - Tétouan</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gym Name</th>
+                        <th>Location</th>
+                        <th>Facilities & Services</th>
+                        <th>Membership Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>FitOne</strong></td>
+                        <td>Tétouan</td>
+                        <td>Complete fitness center, Group classes, Sauna</td>
+                        <td>COS member discounts, Flexible schedules</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Passage Fitness</strong></td>
+                        <td>Tétouan</td>
+                        <td>Modern equipment, Personal coaching, Nutrition plans</td>
+                        <td>Monthly and annual options</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Energy Plus</strong></td>
+                        <td>Tétouan</td>
+                        <td>Cardio, Strength training, Aerobics classes</td>
+                        <td>Preferential corporate rates</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inside Sport</strong></td>
+                        <td>Tétouan</td>
+                        <td>Multi-sport facility, Fitness programs, Wellness coaching</td>
+                        <td>Special employee packages</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Association Hanan</strong></td>
+                        <td>Tétouan</td>
+                        <td>Community fitness, Group activities, Sports programs</td>
+                        <td>Subsidized memberships</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Fitness Centers - Fnideq</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gym Name</th>
+                        <th>Location</th>
+                        <th>Facilities & Services</th>
+                        <th>Membership Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>First Fit</strong></td>
+                        <td>Fnideq</td>
+                        <td>Full gym equipment, Fitness classes, Personal training</td>
+                        <td>COS discounted rates</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Athenas Gym</strong></td>
+                        <td>Fnideq</td>
+                        <td>Strength and cardio training, Group sessions</td>
+                        <td>Flexible membership plans</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Additional Wellness Activities</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Provider Status</th>
+                        <th>Description</th>
+                        <th>Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Swimming</strong></td>
+                        <td>Piscine Olympique</td>
+                        <td>Olympic-size pool, Swimming lessons, Aqua fitness</td>
+                        <td>Reduced entry fees, Group sessions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tennis / Padel</strong></td>
+                        <td>To be defined</td>
+                        <td>Court rental, Coaching, Tournaments</td>
+                        <td>Preferential booking rates</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Biking</strong></td>
+                        <td>To be defined</td>
+                        <td>Group cycling events, Mountain biking, Road cycling</td>
+                        <td>Organized group rides, Equipment discounts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yoga / Dance</strong></td>
+                        <td>To be defined</td>
+                        <td>Yoga classes, Dance workshops, Meditation sessions</td>
+                        <td>Subsidized classes, Wellness programs</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Responsible Team</h2>
+            <p>The following committee members are dedicated to managing and coordinating the Sports & Wellbeing project:</p>
+            <div class="team-list">
+                <div class="team-member">Mohamed Said Filaghi</div>
+                <div class="team-member">Ayman El Haddad</div>
+                <div class="team-member">Anas Alami</div>
+                <div class="team-member">Ilham Az-Eddine</div>
+                <div class="team-member">Hamza Baida</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>How to Get Started</h2>
+            <ol style="line-height: 2; margin-left: 1.5rem;">
+                <li>Check the monthly activity calendar for upcoming events and programs</li>
+                <li>Choose your preferred gym or activity from the partner list</li>
+                <li>Contact the Sports & Wellbeing team to get your membership discount code</li>
+                <li>Register at your chosen facility and mention your COS membership</li>
+                <li>Join group activities and connect with fellow employees</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer style="background: var(--primary); color: white; padding: 2rem; text-align: center; margin-top: 3rem;">
+        <p>&copy; 2025 COS Committee - APM Terminals MedPort Tangier | <a href="index.html" style="color: white;">Back to Home</a></p>
+    </footer>
+</body>
+</html>
