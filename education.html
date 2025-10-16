@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education & Training - COS Committee</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a5f;
+            --project-color: #3b82f6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg-light);
+        }
+
+        nav {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--project-color) 0%, #2563eb 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--project-color);
+        }
+
+        h3 {
+            color: var(--project-color);
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .objective {
+            background: rgba(59, 130, 246, 0.05);
+            border-left: 4px solid var(--project-color);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .objective strong {
+            color: var(--project-color);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: var(--bg-light);
+        }
+
+        .category-header {
+            background: var(--project-color);
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .team-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .team-member {
+            background: var(--bg-light);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--project-color);
+        }
+
+        .highlight-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box strong {
+            color: #d97706;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <div class="logo">COS Committee</div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-icon">📚</div>
+        <h1>Education & Training</h1>
+        <p>Empowering employees and their families through quality education and professional development opportunities</p>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <div class="objective">
+                <strong>Objective</strong>
+                To provide employees and their families with access to quality education and professional development opportunities through partnerships with language centers, schools, and training institutions, while offering financial support and resources that encourage continuous learning.
+            </div>
+
+            <h2>Program Description</h2>
+            <p>This project aims to enhance learning opportunities for employees and their families by establishing partnerships with reputable institutions. It covers language learning through centers such as the American Language Center (English), Cervantes (Spanish), and Goethe (German). For employees, professional training will be offered in collaboration with local universities and business schools.</p>
+            
+            <div class="highlight-box">
+                <strong>💰 Financial Support</strong>
+                Education allowance of <strong>1,000 MAD (COS) + 500 MAD (APM)</strong> is under discussion to assist families with educational expenses.
+            </div>
+
+            <p>Additionally, the program supports children's education by partnering with well-known schools in Tangier and Tétouan. A Library convention will soon be implemented to encourage continuous learning. A key priority is redefining age eligibility criteria to ensure fairness and clarity in benefit distribution.</p>
+        </section>
+
+        <section class="section">
+            <h2>Partners & Services</h2>
+
+            <h3>Language Learning Programs</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Partner</th>
+                        <th>Language</th>
+                        <th>Location</th>
+                        <th>Services Offered</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>American Language Center</strong></td>
+                        <td>English</td>
+                        <td>Tangier</td>
+                        <td>General English, Business English, TOEFL/IELTS preparation, Conversation classes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cervantes Institute</strong></td>
+                        <td>Spanish</td>
+                        <td>Tangier</td>
+                        <td>Spanish language courses (A1-C2), DELE exam preparation, Cultural programs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Goethe Institute</strong></td>
+                        <td>German</td>
+                        <td>Tangier</td>
+                        <td>German language courses, TestDaF preparation, Professional German</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Professional Training Institutions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Institution</th>
+                        <th>Location</th>
+                        <th>Specialization</th>
+                        <th>Programs Available</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ESCG</strong></td>
+                        <td>Tangier</td>
+                        <td>Business & Management</td>
+                        <td>MBA programs, Leadership training, Project management, Finance courses</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EMSI</strong></td>
+                        <td>Tangier</td>
+                        <td>Engineering & Technology</td>
+                        <td>Engineering diplomas, Technical certifications, Industrial management</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ENSI</strong></td>
+                        <td>Tangier</td>
+                        <td>IT & Software</td>
+                        <td>Software development, Cybersecurity, Data science, Cloud computing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SUPTEM</strong></td>
+                        <td>Tangier</td>
+                        <td>Technology & Management</td>
+                        <td>Digital transformation, Supply chain, Quality management</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SIST</strong></td>
+                        <td>Tangier</td>
+                        <td>International Business & IT</td>
+                        <td>International trade, E-commerce, IT management, Digital marketing</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Schools for Children - Tangier</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>School Name</th>
+                        <th>Location</th>
+                        <th>Education Level</th>
+                        <th>Special Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>3G School</strong></td>
+                        <td>Tangier</td>
+                        <td>Primary & Secondary</td>
+                        <td>Bilingual education, Modern facilities, Sports programs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Alamana School</strong></td>
+                        <td>Tangier</td>
+                        <td>Primary & Secondary</td>
+                        <td>Islamic values integration, Academic excellence, Arts programs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Al Jabr School</strong></td>
+                        <td>Tangier</td>
+                        <td>Primary & Secondary</td>
+                        <td>STEM focus, Language programs, Extracurricular activities</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tingis School</strong></td>
+                        <td>Tangier</td>
+                        <td>Primary & Secondary</td>
+                        <td>International curriculum, Technology integration, Cultural diversity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ibn Machich School</strong></td>
+                        <td>Tangier</td>
+                        <td>Primary & Secondary</td>
+                        <td>Traditional values, Modern teaching methods, Community engagement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fajr Al Sabah School</strong></td>
+                        <td>Tangier</td>
+                        <td>Primary & Secondary</td>
+                        <td>Holistic education, Character development, Academic rigor</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Schools for Children - Tétouan</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>School Name</th>
+                        <th>Location</th>
+                        <th>Education Level</th>
+                        <th>Special Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sanabil School</strong></td>
+                        <td>Tétouan</td>
+                        <td>Primary & Secondary</td>
+                        <td>Comprehensive curriculum, Language excellence, Sports facilities</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aya Al Madina School</strong></td>
+                        <td>Tétouan</td>
+                        <td>Primary & Secondary</td>
+                        <td>Modern education, Cultural programs, Technology labs</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Additional Resources</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Provider</th>
+                        <th>Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Library Convention</strong></td>
+                        <td>To be defined</td>
+                        <td>Access to books, learning materials, study spaces, digital resources</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Responsible Team</h2>
+            <p>The following committee members are dedicated to managing and coordinating the Education & Training project:</p>
+            <div class="team-list">
+                <div class="team-member">Team member to be assigned</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>How to Participate</h2>
+            <ol style="line-height: 2; margin-left: 1.5rem;">
+                <li>Contact the COS Committee to express your interest in education programs</li>
+                <li>Verify your eligibility based on current criteria (age limits and employment status)</li>
+                <li>Choose your preferred partner institution from the list above</li>
+                <li>Submit required documentation for enrollment</li>
+                <li>Receive confirmation and benefit details including any applicable allowances</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer style="background: var(--primary); color: white; padding: 2rem; text-align: center; margin-top: 3rem;">
+        <p>&copy; 2025 COS Committee - APM Terminals MedPort Tangier | <a href="index.html" style="color: white;">Back to Home</a></p>
+    </footer>
+</body>
+</html>
