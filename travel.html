@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel - COS Committee</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1e3a5f;
+            --project-color: #8b5cf6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg-light);
+        }
+        nav {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .back-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+        .back-link:hover { opacity: 0.8; }
+        .logo { font-size: 1.25rem; font-weight: 700; }
+        .hero {
+            background: linear-gradient(135deg, var(--project-color) 0%, #7c3aed 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .hero-icon { font-size: 4rem; margin-bottom: 1rem; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; opacity: 0.95; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--project-color);
+        }
+        h3 { color: var(--project-color); font-size: 1.3rem; margin: 2rem 0 1rem; }
+        .objective {
+            background: rgba(139, 92, 246, 0.05);
+            border-left: 4px solid var(--project-color);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+        .objective strong {
+            color: var(--project-color);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--bg-light); color: var(--primary); font-weight: 600; }
+        tr:hover { background: var(--bg-light); }
+        .team-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+        .team-member {
+            background: var(--bg-light);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--project-color);
+        }
+        .highlight-box {
+            background: #ede9fe;
+            border: 2px solid #8b5cf6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .highlight-box strong { color: #7c3aed; display: block; margin-bottom: 0.5rem; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .section { padding: 1.5rem; }
+            table { font-size: 0.9rem; }
+            th, td { padding: 0.75rem 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <div class="logo">COS Committee</div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-icon">✈️</div>
+        <h1>Travel Programs</h1>
+        <p>Cultural and leisure travel opportunities with preferential rates</p>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <div class="objective">
+                <strong>Objective</strong>
+                To organize cultural and leisure travel opportunities for employees, including Omra programs and local outings, while negotiating preferential rates with travel agencies, ferry companies, and hotels to make these experiences accessible and affordable.
+            </div>
+
+            <h2>Program Description</h2>
+            <p>The Travel Project focuses on organizing cultural and adventure trips, as well as leisure activities, for employees. A key highlight is the Omra program, which will allow 10 employees to perform Omra during Ramadan, with a fair selection process and shift planning.</p>
+            
+            <div class="highlight-box">
+                <strong>🕌 Omra Program Highlights</strong>
+                10 employees will be selected to perform Omra during Ramadan (2 per shift + Admin). Fair selection process ensures equal opportunity for all eligible employees.
+            </div>
+
+            <p>The project also includes partnerships with ferry companies like Balearia and AML for discounted travel, as well as agreements with hotels and guest houses for employee outings. This initiative is designed to strengthen team spirit and provide enriching experiences outside the workplace.</p>
+        </section>
+
+        <section class="section">
+            <h2>Travel Services & Partners</h2>
+
+            <h3>Omra Program</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service Provider</th>
+                        <th>Program Details</th>
+                        <th>Inclusions</th>
+                        <th>Selection Process</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Travel Agency Erraji</strong></td>
+                        <td>Omra trip during Ramadan for 10 employees (2 per shift + Admin)</td>
+                        <td>Flights, Accommodation, Transportation, Visa processing, Guided tours</td>
+                        <td>Fair selection based on eligibility criteria, Shift representation ensured</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Ferry Transportation</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ferry Company</th>
+                        <th>Routes</th>
+                        <th>Services</th>
+                        <th>Employee Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Balearia</strong></td>
+                        <td>Tangier - Spain (Algeciras, Tarifa)</td>
+                        <td>Passenger and vehicle transport, Multiple daily departures</td>
+                        <td>Discounted tickets, Priority booking, Family packages</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AML (Africa Morocco Link)</strong></td>
+                        <td>Tangier - Spain routes</td>
+                        <td>Ferry services, Comfortable seating, Onboard amenities</td>
+                        <td>Preferential rates, Group discounts</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Accommodation Partners</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Provider</th>
+                        <th>Services</th>
+                        <th>Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hotels</strong></td>
+                        <td>Partner hotels (list being finalized)</td>
+                        <td>Comfortable lodging, Meal options, Conference facilities</td>
+                        <td>Corporate rates, Group booking discounts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Guest Houses</strong></td>
+                        <td>Selected guest houses in Morocco</td>
+                        <td>Authentic accommodation, Local experiences</td>
+                        <td>Special pricing for COS members</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Travel Packages</strong></td>
+                        <td>Travel Agency Erraji</td>
+                        <td>Complete travel arrangements, Customized itineraries</td>
+                        <td>All-inclusive packages, Flexible options</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Group Outings & Team Building</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Activity Type</th>
+                        <th>Description</th>
+                        <th>Frequency</th>
+                        <th>Coverage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Day Trips</strong></td>
+                        <td>Local excursions to nearby attractions and cities</td>
+                        <td>Quarterly</td>
+                        <td>Transportation, Entry fees, Meals</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weekend Getaways</strong></td>
+                        <td>Short trips to Moroccan destinations</td>
+                        <td>Bi-annual</td>
+                        <td>Accommodation, Transportation, Activities</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cultural Tours</strong></td>
+                        <td>Visits to historical and cultural sites</td>
+                        <td>As organized</td>
+                        <td>Guided tours, Transportation</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Responsible Team</h2>
+            <p>The following committee members are dedicated to managing and coordinating the Travel project:</p>
+            <div class="team-list">
+                <div class="team-member">Zakaria Tagdimi</div>
+                <div class="team-member">Hamza Baida</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>How to Participate</h2>
+            <ol style="line-height: 2; margin-left: 1.5rem;">
+                <li>Watch for announcements about upcoming travel programs and Omra registration</li>
+                <li>Submit your application during the registration period</li>
+                <li>For Omra: Ensure you meet eligibility criteria and provide required documentation</li>
+                <li>For ferry and hotel bookings: Contact the travel team for discount codes</li>
+                <li>For group outings: Register when announcements are made</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer style="background: var(--primary); color: white; padding: 2rem; text-align: center; margin-top: 3rem;">
+        <p>&copy; 2025 COS Committee - APM Terminals MedPort Tangier | <a href="index.html" style="color: white;">Back to Home</a></p>
+    </footer>
+</body>
+</html>
