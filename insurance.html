@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Services - COS Committee</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1e3a5f;
+            --project-color: #ec4899;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg-light);
+        }
+        nav {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .back-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+        .back-link:hover { opacity: 0.8; }
+        .logo { font-size: 1.25rem; font-weight: 700; }
+        .hero {
+            background: linear-gradient(135deg, var(--project-color) 0%, #db2777 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .hero-icon { font-size: 4rem; margin-bottom: 1rem; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; opacity: 0.95; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--project-color);
+        }
+        h3 { color: var(--project-color); font-size: 1.3rem; margin: 2rem 0 1rem; }
+        .objective {
+            background: rgba(236, 72, 153, 0.05);
+            border-left: 4px solid var(--project-color);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+        .objective strong {
+            color: var(--project-color);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--bg-light); color: var(--primary); font-weight: 600; }
+        tr:hover { background: var(--bg-light); }
+        .team-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+        .team-member {
+            background: var(--bg-light);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--project-color);
+        }
+        .highlight-box {
+            background: #fce7f3;
+            border: 2px solid #ec4899;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .highlight-box strong { color: #db2777; display: block; margin-bottom: 0.5rem; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .section { padding: 1.5rem; }
+            table { font-size: 0.9rem; }
+            th, td { padding: 0.75rem 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <div class="logo">COS Committee</div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-icon">🛡️</div>
+        <h1>Insurance Services</h1>
+        <p>Comprehensive coverage ensuring security and peace of mind</p>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <div class="objective">
+                <strong>Objective</strong>
+                To safeguard employees and their families against financial risks by offering comprehensive insurance solutions, including auto, life, and travel coverage, ensuring security and peace of mind in both personal and professional contexts.
+            </div>
+
+            <h2>Program Description</h2>
+            <p>This project ensures financial security and peace of mind for employees through comprehensive insurance coverage. Currently, Sanlam has been confirmed as the provider for auto insurance, while life and visa insurance providers are being finalized.</p>
+            
+            <div class="highlight-box">
+                <strong>🔍 Service Review</strong>
+                The committee is planning a review meeting with AXA Assurance to evaluate existing services and explore improvements to better serve employees.
+            </div>
+
+            <p>By offering these insurance options, the company aims to protect employees against unforeseen risks and provide them with reliable support during emergencies.</p>
+        </section>
+
+        <section class="section">
+            <h2>Insurance Coverage & Providers</h2>
+
+            <h3>Auto Insurance</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Provider</th>
+                        <th>Coverage Type</th>
+                        <th>Benefits</th>
+                        <th>Additional Services</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sanlam Agency</strong></td>
+                        <td>Comprehensive vehicle insurance</td>
+                        <td>Collision coverage, Theft protection, Third-party liability, Roadside assistance</td>
+                        <td>Preferential rates for COS members, Fast claims processing, 24/7 support</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Life Insurance</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Provider</th>
+                        <th>Status</th>
+                        <th>Expected Coverage</th>
+                        <th>Expected Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>To be defined</strong></td>
+                        <td>Under negotiation</td>
+                        <td>Life insurance, Critical illness coverage, Disability benefits</td>
+                        <td>Competitive premiums, Family coverage options, Flexible terms</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Travel & Visa Insurance</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Provider</th>
+                        <th>Status</th>
+                        <th>Expected Coverage</th>
+                        <th>Expected Benefits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>To be defined</strong></td>
+                        <td>Under negotiation</td>
+                        <td>Travel medical insurance, Trip cancellation, Lost luggage, Emergency evacuation</td>
+                        <td>Schengen visa compliance, Worldwide coverage, 24/7 assistance</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Existing Insurance Review</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Provider</th>
+                        <th>Current Status</th>
+                        <th>Review Purpose</th>
+                        <th>Next Steps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>AXA Assurance</strong></td>
+                        <td>Existing provider</td>
+                        <td>Evaluate current services, Explore improvements, Negotiate better terms</td>
+                        <td>Scheduled review meeting, Service assessment, Potential enhancements</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Insurance Coverage Comparison</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Insurance Type</th>
+                        <th>Who It Covers</th>
+                        <th>Key Protection</th>
+                        <th>Why It Matters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Auto Insurance</strong></td>
+                        <td>Vehicle owners</td>
+                        <td>Accidents, Theft, Liability</td>
+                        <td>Protects your investment and provides legal coverage</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Life Insurance</strong></td>
+                        <td>Employee & family</td>
+                        <td>Death benefit, Critical illness</td>
+                        <td>Financial security for your loved ones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Travel Insurance</strong></td>
+                        <td>Travelers</td>
+                        <td>Medical emergencies, Trip issues</td>
+                        <td>Peace of mind during international travel</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Responsible Team</h2>
+            <p>The following committee members are dedicated to managing and coordinating the Insurance Services project:</p>
+            <div class="team-list">
+                <div class="team-member">Soufian El Jamai</div>
+                <div class="team-member">Anas Alami</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>How to Get Insurance Coverage</h2>
+            <ol style="line-height: 2; margin-left: 1.5rem;">
+                <li>Contact the COS Insurance team to learn about available coverage options</li>
+                <li>For auto insurance: Reach out to Sanlam Agency with your COS membership details</li>
+                <li>For life and travel insurance: Wait for provider confirmation announcements</li>
+                <li>Complete required application forms and provide necessary documentation</li>
+                <li>Review policy terms and premium rates before finalizing coverage</li>
+                <li>Keep your policy documents safe and contact providers for claims assistance</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer style="background: var(--primary); color: white; padding: 2rem; text-align: center; margin-top: 3rem;">
+        <p>&copy; 2025 COS Committee - APM Terminals MedPort Tangier | <a href="index.html" style="color: white;">Back to Home</a></p>
+    </footer>
+</body>
+</html>
