@@ -5,108 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News & Updates - COS Committee</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1e3a5f;
+            --education: #8b5cf6;
+            --health: #10b981;
+            --sports: #f59e0b;
+            --family: #ef4444;
+            --travel: #3b82f6;
+            --insurance: #ec4899;
+            --communication: #06b6d4;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #1e293b;
-            background-color: #f8fafc;
+            color: var(--text);
+            background: var(--bg-light);
         }
-
-        .header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        nav {
+            background: var(--primary);
             color: white;
             padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
-        .header-content {
-            max-width: 1200px;
+        .nav-container {
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
         .back-link {
             color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 2px solid white;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-weight: 500;
         }
-
-        .back-link:hover {
-            background: white;
-            color: #1e3a8a;
-        }
-
+        .back-link:hover { opacity: 0.8; }
+        .logo { font-size: 1.25rem; font-weight: 700; }
         .hero {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #2d5a8f 100%);
             color: white;
             padding: 4rem 2rem;
             text-align: center;
         }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.95;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; opacity: 0.95; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        
         .filter-section {
             background: white;
             border-radius: 12px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-
+        .filter-row {
+            margin-bottom: 1.5rem;
+        }
+        .filter-row:last-child {
+            margin-bottom: 0;
+        }
         .filter-title {
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1e293b;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
         }
-
         .filter-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
         }
-
         .filter-btn {
             padding: 0.75rem 1.5rem;
-            border: 2px solid #e2e8f0;
+            border: 2px solid var(--border);
             background: white;
             border-radius: 8px;
             cursor: pointer;
@@ -114,134 +98,159 @@
             transition: all 0.3s ease;
             font-size: 0.95rem;
         }
-
         .filter-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-
         .filter-btn.active {
             color: white;
-            border-color: currentColor;
+            border-color: transparent;
         }
-
-        .filter-btn[data-category="all"] {
-            background: #1e3a8a;
+        .filter-btn[data-category="all"].active { background: var(--primary); }
+        .filter-btn[data-category="education"].active { background: var(--education); }
+        .filter-btn[data-category="health"].active { background: var(--health); }
+        .filter-btn[data-category="sports"].active { background: var(--sports); }
+        .filter-btn[data-category="family"].active { background: var(--family); }
+        .filter-btn[data-category="travel"].active { background: var(--travel); }
+        .filter-btn[data-category="insurance"].active { background: var(--insurance); }
+        .filter-btn[data-category="communication"].active { background: var(--communication); }
+        
+        /* Date filter styling */
+        .date-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        .date-filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .date-filter-group label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        .date-filter-group select,
+        .date-filter-group input {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background: white;
+            cursor: pointer;
+        }
+        .date-filter-group select:focus,
+        .date-filter-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .reset-filters-btn {
+            padding: 0.5rem 1.25rem;
+            background: var(--text-light);
             color: white;
-            border-color: #1e3a8a;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
-
-        .filter-btn[data-category="education"].active {
-            background: #2563eb;
-            border-color: #2563eb;
+        .reset-filters-btn:hover {
+            background: var(--text);
         }
-
-        .filter-btn[data-category="health"].active {
-            background: #dc2626;
-            border-color: #dc2626;
-        }
-
-        .filter-btn[data-category="sports"].active {
-            background: #16a34a;
-            border-color: #16a34a;
-        }
-
-        .filter-btn[data-category="family"].active {
-            background: #ea580c;
-            border-color: #ea580c;
-        }
-
-        .filter-btn[data-category="travel"].active {
-            background: #0891b2;
-            border-color: #0891b2;
-        }
-
-        .filter-btn[data-category="insurance"].active {
-            background: #7c3aed;
-            border-color: #7c3aed;
-        }
-
-        .filter-btn[data-category="communication"].active {
-            background: #a855f7;
-            border-color: #a855f7;
-        }
-
+        
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
         }
-
         .news-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
             cursor: pointer;
-            display: flex;
-            flex-direction: column;
+            border-top: 4px solid var(--border);
         }
-
         .news-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
-
+        .news-card.education { border-top-color: var(--education); }
+        .news-card.health { border-top-color: var(--health); }
+        .news-card.sports { border-top-color: var(--sports); }
+        .news-card.family { border-top-color: var(--family); }
+        .news-card.travel { border-top-color: var(--travel); }
+        .news-card.insurance { border-top-color: var(--insurance); }
+        .news-card.communication { border-top-color: var(--communication); }
+        
+        .news-header {
+            padding: 1.5rem;
+            padding-bottom: 1rem;
+        }
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        .category-badge {
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .category-badge.education { background: var(--education); }
+        .category-badge.health { background: var(--health); }
+        .category-badge.sports { background: var(--sports); }
+        .category-badge.family { background: var(--family); }
+        .category-badge.travel { background: var(--travel); }
+        .category-badge.insurance { background: var(--insurance); }
+        .category-badge.communication { background: var(--communication); }
+        
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+        .news-excerpt {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
         .news-card.hidden {
             display: none;
         }
-
-        .news-header {
-            padding: 1rem;
-            color: white;
-            font-weight: 600;
-        }
-
-        .news-header.education { background: #2563eb; }
-        .news-header.health { background: #dc2626; }
-        .news-header.sports { background: #16a34a; }
-        .news-header.family { background: #ea580c; }
-        .news-header.travel { background: #0891b2; }
-        .news-header.insurance { background: #7c3aed; }
-        .news-header.communication { background: #a855f7; }
-
-        .news-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .news-date {
-            color: #64748b;
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .news-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 0.75rem;
-        }
-
-        .news-excerpt {
-            color: #475569;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-
-        .read-more {
-            color: #3b82f6;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
+        
+        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -254,13 +263,11 @@
             overflow-y: auto;
             padding: 2rem;
         }
-
         .modal.active {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         .modal-content {
             background: white;
             border-radius: 12px;
@@ -269,125 +276,102 @@
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
+            animation: slideIn 0.3s ease;
         }
-
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         .modal-header {
             padding: 2rem;
-            color: white;
-            position: relative;
+            border-bottom: 1px solid var(--border);
         }
-
-        .modal-header.education { background: #2563eb; }
-        .modal-header.health { background: #dc2626; }
-        .modal-header.sports { background: #16a34a; }
-        .modal-header.family { background: #ea580c; }
-        .modal-header.travel { background: #0891b2; }
-        .modal-header.insurance { background: #7c3aed; }
-        .modal-header.communication { background: #a855f7; }
-
-        .close-modal {
+        .modal-close {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(255,255,255,0.2);
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--bg-light);
             border: none;
-            color: white;
-            font-size: 2rem;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             cursor: pointer;
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
         }
-
-        .close-modal:hover {
-            background: rgba(255,255,255,0.3);
+        .modal-close:hover {
+            background: var(--border);
         }
-
-        .modal-date {
-            font-size: 0.875rem;
-            opacity: 0.9;
-            margin-bottom: 0.5rem;
-        }
-
         .modal-title {
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-right: 3rem;
         }
-
-        .modal-category {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: rgba(255,255,255,0.2);
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 500;
+        .modal-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
         }
-
         .modal-body {
             padding: 2rem;
         }
-
-        .modal-body h3 {
-            color: #1e293b;
-            font-size: 1.5rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
         .modal-body p {
-            color: #475569;
-            line-height: 1.8;
             margin-bottom: 1rem;
-        }
-
-        .modal-body ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .modal-body li {
-            color: #475569;
             line-height: 1.8;
-            margin-bottom: 0.5rem;
         }
-
-        .no-results {
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
             text-align: center;
-            padding: 3rem;
-            color: #64748b;
-            font-size: 1.125rem;
+            margin-top: 4rem;
         }
-
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
+            .hero h1 { font-size: 2rem; }
             .news-grid {
                 grid-template-columns: 1fr;
             }
-
             .filter-buttons {
                 flex-direction: column;
             }
-
             .filter-btn {
                 width: 100%;
             }
-
+            .date-filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .date-filter-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .date-filter-group select,
+            .date-filter-group input {
+                width: 100%;
+            }
             .modal {
                 padding: 1rem;
             }
-
             .modal-title {
                 font-size: 1.5rem;
             }
@@ -395,585 +379,366 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">COS Committee</div>
+    <nav>
+        <div class="nav-container">
             <a href="index.html" class="back-link">← Back to Home</a>
+            <div class="logo">COS Committee</div>
         </div>
+    </nav>
+
+    <header class="hero">
+        <h1>News & Updates</h1>
+        <p>Stay informed about the latest COS Committee initiatives and announcements</p>
     </header>
 
-    <section class="hero">
-        <h1>News & Updates</h1>
-        <p>Stay informed about the latest COS initiatives, partnerships, and employee benefits</p>
-    </section>
-
-    <div class="container">
-        <div class="filter-section">
-            <div class="filter-title">Filter by Category</div>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-category="all">All News</button>
-                <button class="filter-btn" data-category="education">Education & Training</button>
-                <button class="filter-btn" data-category="health">Health</button>
-                <button class="filter-btn" data-category="sports">Sports & Wellbeing</button>
-                <button class="filter-btn" data-category="family">Family & Social Benefits</button>
-                <button class="filter-btn" data-category="travel">Travel</button>
-                <button class="filter-btn" data-category="insurance">Insurance Services</button>
-                <button class="filter-btn" data-category="communication">Communication</button>
+    <main class="container">
+        <section class="filter-section">
+            <div class="filter-row">
+                <div class="filter-title">Filter by Category</div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All News</button>
+                    <button class="filter-btn" data-category="education">Education</button>
+                    <button class="filter-btn" data-category="health">Health</button>
+                    <button class="filter-btn" data-category="sports">Sports</button>
+                    <button class="filter-btn" data-category="family">Family</button>
+                    <button class="filter-btn" data-category="travel">Travel</button>
+                    <button class="filter-btn" data-category="insurance">Insurance</button>
+                    <button class="filter-btn" data-category="communication">Communication</button>
+                </div>
             </div>
-        </div>
+            
+            <!-- Added date filtering controls -->
+            <div class="filter-row">
+                <div class="filter-title">Filter by Date</div>
+                <div class="date-filters">
+                    <div class="date-filter-group">
+                        <label for="monthFilter">Month:</label>
+                        <select id="monthFilter">
+                            <option value="all">All Months</option>
+                            <option value="2025-01">January 2025</option>
+                            <option value="2025-02">February 2025</option>
+                            <option value="2025-03">March 2025</option>
+                            <option value="2025-04">April 2025</option>
+                            <option value="2024-12">December 2024</option>
+                            <option value="2024-11">November 2024</option>
+                        </select>
+                    </div>
+                    <div class="date-filter-group">
+                        <label for="yearFilter">Year:</label>
+                        <select id="yearFilter">
+                            <option value="all">All Years</option>
+                            <option value="2025" selected>2025</option>
+                            <option value="2024">2024</option>
+                        </select>
+                    </div>
+                    <button class="reset-filters-btn" id="resetFilters">Reset All Filters</button>
+                </div>
+            </div>
+        </section>
 
         <div class="news-grid" id="newsGrid">
-            <!-- News cards will be inserted here by JavaScript -->
+            <!-- News articles will be dynamically generated -->
         </div>
 
         <div class="no-results" id="noResults" style="display: none;">
-            No news found for this category.
+            No news found matching your filters.
         </div>
-    </div>
+    </main>
 
-    <!-- Modal for news details -->
+    <!-- Modal for full article -->
     <div class="modal" id="newsModal">
         <div class="modal-content">
-            <div class="modal-header" id="modalHeader">
-                <button class="close-modal" onclick="closeModal()">&times;</button>
-                <div class="modal-date" id="modalDate"></div>
+            <div class="modal-header">
+                <button class="modal-close" id="closeModal">&times;</button>
                 <h2 class="modal-title" id="modalTitle"></h2>
-                <span class="modal-category" id="modalCategory"></span>
+                <div class="modal-meta">
+                    <span class="news-date" id="modalDate"></span>
+                    <span class="category-badge" id="modalCategory"></span>
+                </div>
             </div>
             <div class="modal-body" id="modalBody"></div>
         </div>
     </div>
 
+    <footer>
+        <p>&copy; 2025 COS Committee - APM Terminals MedPort Tangier | <a href="index.html">Back to Home</a></p>
+    </footer>
+
     <script>
         // News data
-        const newsData = [
+        const newsArticles = [
             {
                 id: 1,
                 category: 'education',
-                categoryName: 'Education & Training',
-                date: 'September 15, 2025',
-                title: 'New Language Learning Partnerships Announced',
-                excerpt: 'COS Committee has secured partnerships with American Language Center, Cervantes, and Goethe Institute to provide discounted language courses for employees and their families.',
-                content: `
-                    <p>We are excited to announce new partnerships with leading language learning institutions in Tangier. These partnerships will provide employees and their families with access to high-quality language education at preferential rates.</p>
-                    
-                    <h3>Partner Institutions</h3>
-                    <ul>
-                        <li><strong>American Language Center:</strong> English language courses for all levels, from beginner to advanced business English</li>
-                        <li><strong>Cervantes Institute:</strong> Spanish language and culture programs, including DELE exam preparation</li>
-                        <li><strong>Goethe Institute:</strong> German language courses and cultural workshops</li>
-                    </ul>
-                    
-                    <h3>Benefits</h3>
-                    <p>Employees will receive a 20-30% discount on course fees, flexible scheduling options to accommodate work shifts, and priority enrollment for popular courses.</p>
-                    
-                    <h3>How to Register</h3>
-                    <p>Contact the COS Committee to receive your discount code and enrollment instructions. Registration opens October 1, 2025.</p>
-                `
+                title: 'New English Language Partnership with AMIDEAST',
+                date: '2025-04-15',
+                excerpt: 'COS Committee announces exciting partnership with AMIDEAST for comprehensive English language training programs.',
+                content: 'We are thrilled to announce our new partnership with AMIDEAST, a leading educational organization. This collaboration will provide COS members with access to high-quality English language courses at preferential rates. The program includes TOEFL preparation, business English, and general proficiency courses. Members can now register for courses starting in May 2025. Special discounts of up to 30% are available for COS members and their families.'
             },
             {
                 id: 2,
-                category: 'education',
-                categoryName: 'Education & Training',
-                date: 'September 10, 2025',
-                title: 'Education Allowance Program Update',
-                excerpt: 'The education allowance has been increased to 1,500 MAD per child per year, combining COS (1,000 MAD) and APM (500 MAD) contributions.',
-                content: `
-                    <p>Following the COS Committee workshop, we are pleased to announce an enhancement to the education allowance program for employees with school-age children.</p>
-                    
-                    <h3>New Allowance Structure</h3>
-                    <ul>
-                        <li><strong>COS Contribution:</strong> 1,000 MAD per child per academic year</li>
-                        <li><strong>APM Contribution:</strong> 500 MAD per child per academic year</li>
-                        <li><strong>Total Benefit:</strong> 1,500 MAD per child per academic year</li>
-                    </ul>
-                    
-                    <h3>Eligibility</h3>
-                    <p>The committee is currently reviewing age eligibility criteria to ensure fairness. Current guidelines apply to children aged 6-18 enrolled in recognized educational institutions.</p>
-                    
-                    <h3>Application Process</h3>
-                    <p>Submit proof of enrollment and a copy of school fees to the HR department. Allowances will be disbursed at the beginning of each academic term.</p>
-                `
+                category: 'health',
+                title: 'Expanded Health Services at Clinique Al Madina',
+                date: '2025-04-10',
+                excerpt: 'Clinique Al Madina introduces new specialist consultations and extended hours for COS members.',
+                content: 'Clinique Al Madina has expanded its services specifically for COS members. New specialist consultations now include cardiology, dermatology, and pediatrics. The clinic has also extended its operating hours to better serve our members. Emergency services are available 24/7. Members can benefit from reduced consultation fees and priority booking. To schedule an appointment, please contact the clinic directly with your COS membership number.'
             },
             {
                 id: 3,
-                category: 'health',
-                categoryName: 'Health',
-                date: 'September 12, 2025',
-                title: 'Expanded Medical Network in Tangier and Tétouan',
-                excerpt: 'COS has partnered with 15+ clinics and laboratories to provide comprehensive healthcare services at preferential rates for employees and their families.',
-                content: `
-                    <p>The Health Committee has successfully negotiated partnerships with leading medical facilities in Tangier and Tétouan, significantly expanding healthcare access for all employees.</p>
-                    
-                    <h3>Partner Clinics</h3>
-                    <ul>
-                        <li><strong>Tangier:</strong> Clinique International, Ibn Sina, Akdital Razi, Spartel</li>
-                        <li><strong>Tétouan:</strong> Clinique International, AKDITAL</li>
-                    </ul>
-                    
-                    <h3>Laboratory Services</h3>
-                    <p>Discounted rates (15-25% off) at Derdabi, Bio Center, El Hakim, Zeroual (Tangier) and Rif, Chamal, Annakhil, Ibn Nafiss (Tétouan).</p>
-                    
-                    <h3>Specialist Network</h3>
-                    <p>The committee is finalizing agreements with dentists, ophthalmologists, opticians, and physical therapists. A comprehensive directory will be published by October 2025.</p>
-                    
-                    <h3>How to Access</h3>
-                    <p>Present your employee ID at any partner facility to receive preferential rates. No pre-authorization required for consultations under 500 MAD.</p>
-                `
+                category: 'sports',
+                title: 'Summer Sports Program Registration Now Open',
+                date: '2025-03-28',
+                excerpt: 'Register now for our comprehensive summer sports programs including swimming, tennis, and fitness classes.',
+                content: 'The COS Committee is excited to launch the Summer Sports Program 2025. Programs include swimming lessons for all ages, tennis coaching, group fitness classes, and family sports activities. Registration is now open and will close on May 15th. Early bird discounts are available for registrations completed before April 30th. All programs run from June through August. Spaces are limited, so register early to secure your spot.'
             },
             {
                 id: 4,
-                category: 'health',
-                categoryName: 'Health',
-                date: 'August 28, 2025',
-                title: 'Specialist Medical Services Now Available',
-                excerpt: 'Dental, ophthalmology, and optician services are now available through COS partnerships with preferential pricing for employees.',
-                content: `
-                    <p>We are expanding our healthcare offerings to include specialized medical services with significant discounts for employees and their immediate family members.</p>
-                    
-                    <h3>Available Specialties</h3>
-                    <ul>
-                        <li><strong>Dental Care:</strong> General dentistry, orthodontics, and cosmetic procedures at 20% discount</li>
-                        <li><strong>Ophthalmology:</strong> Eye examinations, treatments, and surgical consultations at partner clinics</li>
-                        <li><strong>Optician Services:</strong> Prescription glasses and contact lenses with up to 30% discount</li>
-                        <li><strong>Physical Therapy:</strong> Rehabilitation and physiotherapy sessions at reduced rates</li>
-                    </ul>
-                    
-                    <h3>Quality Assurance</h3>
-                    <p>All partner specialists have been carefully selected based on qualifications, experience, and patient satisfaction ratings.</p>
-                    
-                    <h3>Booking Appointments</h3>
-                    <p>Contact details for all specialist partners will be available on the COS digital platform launching in October 2025.</p>
-                `
+                category: 'family',
+                title: 'Summer Camp 2025: Registration Deadline Extended',
+                date: '2025-03-20',
+                excerpt: 'Due to popular demand, we have extended the registration deadline for our summer camp programs.',
+                content: 'Great news for families! The registration deadline for Summer Camp 2025 has been extended to April 30th. Our camps offer educational activities, outdoor adventures, arts and crafts, and sports for children aged 6-16. Transportation is included, and healthy meals are provided daily. The camp runs for 8 weeks starting June 15th. Limited spots remain, so register soon. Special sibling discounts are available.'
             },
             {
                 id: 5,
-                category: 'sports',
-                categoryName: 'Sports & Wellbeing',
-                date: 'September 18, 2025',
-                title: 'Gym Membership Discounts Across Tangier, Tétouan, and Fnideq',
-                excerpt: 'Employees can now access 15+ gyms and fitness centers with discounts ranging from 20-40% off regular membership fees.',
-                content: `
-                    <p>The Sports & Wellbeing Committee has secured partnerships with premier fitness facilities across the region, making it easier and more affordable for employees to maintain an active lifestyle.</p>
-                    
-                    <h3>Partner Gyms - Tangier</h3>
-                    <ul>
-                        <li><strong>Olympic Gym:</strong> 30% discount on all memberships</li>
-                        <li><strong>Budoo Fitness:</strong> 25% discount plus free initial assessment</li>
-                        <li><strong>Energym:</strong> 35% discount on annual memberships</li>
-                        <li><strong>Flora Fitness:</strong> 20% discount with flexible payment plans</li>
-                        <li><strong>Jimmy's Gym:</strong> 30% discount plus guest passes</li>
-                    </ul>
-                    
-                    <h3>Partner Gyms - Tétouan</h3>
-                    <ul>
-                        <li><strong>FitOne:</strong> 40% discount on 6-month and annual plans</li>
-                        <li><strong>Passage Fitness:</strong> 25% discount with personal training options</li>
-                        <li><strong>Energy Plus:</strong> 30% discount plus group class access</li>
-                        <li><strong>Inside Sport:</strong> 20% discount on all services</li>
-                    </ul>
-                    
-                    <h3>Partner Gyms - Fnideq</h3>
-                    <ul>
-                        <li><strong>First Fit:</strong> 35% discount on memberships</li>
-                        <li><strong>Athenas Fitness:</strong> 30% discount with family packages available</li>
-                    </ul>
-                    
-                    <h3>How to Register</h3>
-                    <p>Visit any partner gym with your employee ID to activate your discount. Most facilities offer flexible scheduling to accommodate shift work.</p>
-                `
+                category: 'travel',
+                title: 'Omra 2025: New Travel Packages Available',
+                date: '2025-03-15',
+                excerpt: 'Exclusive Omra travel packages now available with comprehensive services and competitive pricing.',
+                content: 'The COS Committee is pleased to offer exclusive Omra travel packages for 2025. Packages include round-trip flights, 4-star hotel accommodations in Mecca and Medina, guided tours, visa assistance, and 24/7 support. Multiple departure dates are available throughout the year. Special group rates are offered for families and groups of 10 or more. Contact our travel coordinator for detailed itineraries and pricing information.'
             },
             {
                 id: 6,
-                category: 'sports',
-                categoryName: 'Sports & Wellbeing',
-                date: 'September 5, 2025',
-                title: 'Monthly Sports Activities Calendar Launched',
-                excerpt: 'Join football leagues, yoga sessions, biking events, and dance classes organized by the COS Sports Committee.',
-                content: `
-                    <p>To promote team building and healthy lifestyles, the Sports & Wellbeing Committee is launching a monthly activities calendar featuring diverse sports and wellness programs.</p>
-                    
-                    <h3>September - October Activities</h3>
-                    <ul>
-                        <li><strong>Football League:</strong> Weekly matches every Saturday at partner facilities in Tangier, Tétouan, and Fnideq</li>
-                        <li><strong>Yoga Sessions:</strong> Tuesday and Thursday evenings, beginner and intermediate levels</li>
-                        <li><strong>Group Biking:</strong> Sunday morning rides exploring coastal routes</li>
-                        <li><strong>Dance Classes:</strong> Zumba and traditional dance every Wednesday evening</li>
-                        <li><strong>Swimming:</strong> Access to Piscine Olympique with group sessions</li>
-                        <li><strong>Tennis/Padel:</strong> Monthly tournaments and social play sessions</li>
-                    </ul>
-                    
-                    <h3>Registration</h3>
-                    <p>Sign up through the COS digital platform or contact your shift representative. All activities are free for employees, with nominal fees for family members.</p>
-                    
-                    <h3>Team Building</h3>
-                    <p>These activities are designed to strengthen connections between colleagues across different shifts and departments.</p>
-                `
+                category: 'insurance',
+                title: 'Auto Insurance Partnership with Sanlam Confirmed',
+                date: '2025-03-10',
+                excerpt: 'COS members can now benefit from exclusive auto insurance rates through our partnership with Sanlam.',
+                content: 'We are pleased to confirm our partnership with Sanlam Agency for auto insurance services. COS members receive preferential rates on comprehensive vehicle insurance, including collision coverage, theft protection, and third-party liability. The package also includes 24/7 roadside assistance and fast claims processing. To get a quote, contact Sanlam directly and mention your COS membership. Representatives are available to answer all your questions.'
             },
             {
                 id: 7,
-                category: 'family',
-                categoryName: 'Family & Social Benefits',
-                date: 'September 8, 2025',
-                title: 'Aid Al Adha Allowance Increased to 500 MAD',
-                excerpt: 'COS Committee announces enhanced seasonal allowance to support employees during Aid Al Adha celebrations.',
-                content: `
-                    <p>In recognition of the importance of religious and cultural celebrations, the COS Committee has approved an increase in the Aid Al Adha allowance for all eligible employees.</p>
-                    
-                    <h3>Allowance Details</h3>
-                    <ul>
-                        <li><strong>Amount:</strong> 500 MAD per employee</li>
-                        <li><strong>Eligibility:</strong> All permanent employees with 6+ months of service</li>
-                        <li><strong>Distribution:</strong> One week before Aid Al Adha</li>
-                    </ul>
-                    
-                    <h3>Additional Support</h3>
-                    <p>The Family & Social Benefits Committee is also exploring partnerships with local suppliers to provide discounted rates on Aid Al Adha purchases.</p>
-                    
-                    <h3>Payment Method</h3>
-                    <p>The allowance will be directly deposited into employee bank accounts. No application required for eligible employees.</p>
-                `
+                category: 'communication',
+                title: 'New Digital Platform Launch Announcement',
+                date: '2025-02-28',
+                excerpt: 'COS Committee to launch comprehensive digital platform for easier access to all member benefits.',
+                content: 'We are excited to announce the upcoming launch of our new digital platform. This centralized hub will provide easy access to all COS programs, partner information, discount codes, and registration forms. Members will be able to view their benefits, track registrations, and receive personalized notifications. The platform will launch in May 2025. Stay tuned for more details and training sessions on how to use the new system.'
             },
             {
                 id: 8,
-                category: 'family',
-                categoryName: 'Family & Social Benefits',
-                date: 'August 30, 2025',
-                title: 'Car Purchase Program with Major Brands',
-                excerpt: 'Exclusive financing and discount programs now available for Opel, KIA, Hyundai, and Renault vehicles.',
-                content: `
-                    <p>The COS Committee has negotiated special car purchase programs with four major automotive brands, offering employees significant savings and flexible financing options.</p>
-                    
-                    <h3>Partner Brands & Benefits</h3>
-                    <ul>
-                        <li><strong>Opel:</strong> 5-8% discount on all models, 0% financing for 12 months</li>
-                        <li><strong>KIA:</strong> 6-10% discount, extended warranty included</li>
-                        <li><strong>Hyundai:</strong> 5-9% discount, free maintenance for first year</li>
-                        <li><strong>Renault:</strong> 7-12% discount, flexible payment plans</li>
-                    </ul>
-                    
-                    <h3>Financing Options</h3>
-                    <p>Special financing rates through partner banks with minimal documentation requirements. Loan terms up to 60 months available.</p>
-                    
-                    <h3>How to Apply</h3>
-                    <p>Contact the Family & Social Benefits Committee for a referral letter. Present the letter at any authorized dealer to access the program benefits.</p>
-                    
-                    <h3>Trade-In Program</h3>
-                    <p>Enhanced trade-in values for employees upgrading their vehicles through the program.</p>
-                `
+                category: 'education',
+                title: 'French Language Courses at Institut Français',
+                date: '2025-02-20',
+                excerpt: 'New French language courses starting in April with special rates for COS members.',
+                content: 'Institut Français Tangier is offering new French language courses starting April 1st. Courses are available for all levels from A1 to C2, including DELF and DALF exam preparation. COS members receive a 25% discount on all course fees. Classes are available in the morning, afternoon, and evening to accommodate different schedules. Cultural workshops and library access are included. Register before March 31st to secure your spot.'
             },
             {
                 id: 9,
-                category: 'travel',
-                categoryName: 'Travel',
-                date: 'September 20, 2025',
-                title: 'Omra Program for Ramadan 2026 - Registration Opens',
-                excerpt: '10 employees will have the opportunity to perform Omra during Ramadan with full support from COS Committee.',
-                content: `
-                    <p>The COS Committee is proud to announce the Omra Program for Ramadan 2026, offering 10 employees the opportunity to perform Omra with comprehensive support and fair selection process.</p>
-                    
-                    <h3>Program Details</h3>
-                    <ul>
-                        <li><strong>Number of Participants:</strong> 10 employees (2 per shift + administrative staff)</li>
-                        <li><strong>Travel Partner:</strong> Erraji Travel Agency</li>
-                        <li><strong>Duration:</strong> 10-14 days during Ramadan 2026</li>
-                        <li><strong>Package Includes:</strong> Round-trip flights, accommodation, transportation, and guided tours</li>
-                    </ul>
-                    
-                    <h3>Selection Process</h3>
-                    <p>Fair and transparent selection based on seniority, previous participation, and shift representation. Priority given to employees who have not previously participated in company-sponsored religious travel.</p>
-                    
-                    <h3>Financial Support</h3>
-                    <p>COS Committee will cover 70% of total costs. Employees contribute 30% through convenient payment plans.</p>
-                    
-                    <h3>Registration</h3>
-                    <p>Applications open October 1, 2025 and close November 30, 2025. Submit your application through the HR department with required documentation.</p>
-                    
-                    <h3>Shift Planning</h3>
-                    <p>The committee will coordinate with shift managers to ensure minimal operational impact during the travel period.</p>
-                `
+                category: 'health',
+                title: 'Free Health Screening Day for COS Members',
+                date: '2025-02-15',
+                excerpt: 'Annual health screening day scheduled for March 25th at Clinique Tanger Med.',
+                content: 'The COS Committee, in partnership with Clinique Tanger Med, is organizing a free health screening day for all members. The event will take place on March 25th from 9 AM to 5 PM. Screenings include blood pressure, cholesterol, blood sugar, BMI, and general health consultations. No appointment necessary, but registration is recommended to avoid waiting. This is an excellent opportunity to check your health status and receive professional medical advice.'
             },
             {
                 id: 10,
-                category: 'travel',
-                categoryName: 'Travel',
-                date: 'September 1, 2025',
-                title: 'Ferry Discounts with Balearia and AML',
-                excerpt: 'Employees receive 15-20% discount on ferry travel between Morocco and Spain for personal and family trips.',
-                content: `
-                    <p>The Travel Committee has secured preferential rates with two major ferry operators, making cross-strait travel more affordable for employees and their families.</p>
-                    
-                    <h3>Balearia Partnership</h3>
-                    <ul>
-                        <li><strong>Discount:</strong> 20% off all routes (Tangier-Algeciras, Tangier-Tarifa)</li>
-                        <li><strong>Vehicle Transport:</strong> 15% discount on car/motorcycle transport</li>
-                        <li><strong>Booking:</strong> Online with promo code or at ticket office with employee ID</li>
-                    </ul>
-                    
-                    <h3>AML Partnership</h3>
-                    <ul>
-                        <li><strong>Discount:</strong> 15% off passenger tickets</li>
-                        <li><strong>Group Rates:</strong> Additional 5% for groups of 4 or more</li>
-                        <li><strong>Flexibility:</strong> Free date changes up to 24 hours before departure</li>
-                    </ul>
-                    
-                    <h3>Hotel Partnerships</h3>
-                    <p>Discounted accommodation packages available at partner hotels and guest houses in Spain. Contact the Travel Committee for the complete list and booking codes.</p>
-                    
-                    <h3>Terms & Conditions</h3>
-                    <p>Discounts apply to personal travel only. Subject to availability and blackout dates during peak seasons.</p>
-                `
+                category: 'sports',
+                title: 'New Fitness Partnership with Fitness Plus',
+                date: '2025-02-10',
+                excerpt: 'COS members now have access to premium fitness facilities at discounted rates.',
+                content: 'We are pleased to announce our new partnership with Fitness Plus Tangier. COS members can now enjoy access to state-of-the-art gym equipment, group fitness classes, swimming pool, and spa facilities at exclusive member rates. Monthly and annual membership options are available with discounts up to 40%. The facility is open from 6 AM to 10 PM daily. Personal training sessions are also available at reduced rates for COS members.'
             },
             {
                 id: 11,
-                category: 'insurance',
-                categoryName: 'Insurance Services',
-                date: 'September 14, 2025',
-                title: 'Sanlam Auto Insurance Partnership Confirmed',
-                excerpt: 'Comprehensive auto insurance coverage now available with competitive rates and simplified claims process.',
-                content: `
-                    <p>The Insurance Services Committee has finalized a partnership with Sanlam Agency to provide employees with comprehensive auto insurance coverage at preferential rates.</p>
-                    
-                    <h3>Coverage Options</h3>
-                    <ul>
-                        <li><strong>Third-Party Liability:</strong> Mandatory coverage at 15% below market rates</li>
-                        <li><strong>Comprehensive Coverage:</strong> Full protection including theft, fire, and natural disasters at 20% discount</li>
-                        <li><strong>Roadside Assistance:</strong> 24/7 support included in all policies</li>
-                        <li><strong>Replacement Vehicle:</strong> Available during repairs for comprehensive policies</li>
-                    </ul>
-                    
-                    <h3>Claims Process</h3>
-                    <p>Simplified claims procedure with dedicated support for COS members. Average claim processing time: 5-7 business days.</p>
-                    
-                    <h3>Additional Benefits</h3>
-                    <ul>
-                        <li>No-claims bonus protection</li>
-                        <li>Windscreen coverage without affecting no-claims discount</li>
-                        <li>Personal accident cover for driver and passengers</li>
-                        <li>Legal expense coverage</li>
-                    </ul>
-                    
-                    <h3>How to Apply</h3>
-                    <p>Contact Sanlam Agency directly with your employee ID or request assistance from the Insurance Services Committee.</p>
-                `
+                category: 'family',
+                title: 'Family Fun Day Event - Save the Date',
+                date: '2025-01-30',
+                excerpt: 'Annual Family Fun Day scheduled for April 20th with activities for all ages.',
+                content: 'Mark your calendars! The COS Committee Annual Family Fun Day will take place on April 20th at Family Fun Park. The event features games, competitions, entertainment, food, and prizes for the whole family. Activities include face painting, bouncy castles, sports tournaments, and live performances. Entry is free for all COS members and their families. Registration is required by April 10th. Do not miss this wonderful opportunity to connect with other COS families.'
             },
             {
                 id: 12,
-                category: 'insurance',
-                categoryName: 'Insurance Services',
-                date: 'August 25, 2025',
-                title: 'Life and Visa Insurance Programs Under Review',
-                excerpt: 'COS Committee evaluating proposals for comprehensive life insurance and travel visa insurance coverage.',
-                content: `
-                    <p>The Insurance Services Committee is currently reviewing proposals from multiple providers to offer employees comprehensive life insurance and visa insurance programs.</p>
-                    
-                    <h3>Life Insurance Program (Proposed)</h3>
-                    <ul>
-                        <li><strong>Coverage Amount:</strong> Up to 500,000 MAD</li>
-                        <li><strong>Beneficiaries:</strong> Employee-designated family members</li>
-                        <li><strong>Premium Sharing:</strong> Company subsidizes 50% of premiums</li>
-                        <li><strong>Additional Benefits:</strong> Critical illness coverage and disability protection</li>
-                    </ul>
-                    
-                    <h3>Visa Insurance Program (Proposed)</h3>
-                    <ul>
-                        <li><strong>Coverage:</strong> Schengen visa requirements and beyond</li>
-                        <li><strong>Medical Coverage:</strong> Up to 30,000 EUR for travel emergencies</li>
-                        <li><strong>Repatriation:</strong> Full coverage for medical repatriation</li>
-                        <li><strong>Trip Cancellation:</strong> Protection against unforeseen cancellations</li>
-                    </ul>
-                    
-                    <h3>AXA Assurance Review</h3>
-                    <p>A comprehensive review meeting with AXA Assurance is scheduled to evaluate existing services and explore potential improvements to current coverage.</p>
-                    
-                    <h3>Timeline</h3>
-                    <p>Final decisions expected by November 2025, with program launch targeted for January 2026.</p>
-                `
+                category: 'travel',
+                title: 'Weekend Getaway Packages to Chefchaouen',
+                date: '2025-01-25',
+                excerpt: 'Exclusive weekend travel packages to the beautiful blue city of Chefchaouen.',
+                content: 'Discover the beauty of Chefchaouen with our exclusive weekend getaway packages. The package includes round-trip transportation, two nights accommodation in a traditional riad, guided city tour, and breakfast. Departures available every weekend from March through June. Special family rates and group discounts are offered. This is a perfect opportunity to explore one of Morocco\'s most picturesque destinations. Book early as spaces are limited.'
             },
             {
                 id: 13,
-                category: 'communication',
-                categoryName: 'Communication',
-                date: 'September 22, 2025',
-                title: 'New COS Digital Platform Launching October 2025',
-                excerpt: 'Centralized online platform will provide easy access to all COS benefits, conventions, and program information.',
-                content: `
-                    <p>The Communication Committee is excited to announce the upcoming launch of a dedicated digital platform that will serve as the central hub for all COS Committee information and services.</p>
-                    
-                    <h3>Platform Features</h3>
-                    <ul>
-                        <li><strong>Benefits Directory:</strong> Complete listing of all partnerships, discounts, and programs</li>
-                        <li><strong>Online Registration:</strong> Easy sign-up for activities, programs, and events</li>
-                        <li><strong>Document Center:</strong> Access to forms, guidelines, and policy documents</li>
-                        <li><strong>News & Updates:</strong> Real-time announcements and program updates</li>
-                        <li><strong>Contact Directory:</strong> Direct access to committee members and partner services</li>
-                        <li><strong>Feedback System:</strong> Submit suggestions and report issues</li>
-                    </ul>
-                    
-                    <h3>Mobile Access</h3>
-                    <p>The platform will be fully responsive and accessible from any device, making it easy to access information on the go.</p>
-                    
-                    <h3>Training Sessions</h3>
-                    <p>Brief training sessions will be conducted for all employees to familiarize them with the platform features and navigation.</p>
-                    
-                    <h3>Launch Date</h3>
-                    <p>Official launch: October 15, 2025. Early access for committee members begins October 1, 2025.</p>
-                `
+                category: 'insurance',
+                title: 'Life Insurance Options Under Review',
+                date: '2025-01-20',
+                excerpt: 'COS Committee evaluating life insurance providers to offer comprehensive coverage options.',
+                content: 'The COS Committee is currently reviewing proposals from leading insurance providers to offer life insurance coverage to members. The goal is to provide affordable, comprehensive life insurance options that include critical illness coverage and disability benefits. We are committed to negotiating the best possible rates and terms for our members. More information will be shared once provider selection is complete, expected by end of March 2025.'
             },
             {
                 id: 14,
                 category: 'communication',
-                categoryName: 'Communication',
-                date: 'September 3, 2025',
-                title: 'Monthly COS Newsletter Now Available',
-                excerpt: 'Stay informed with our new monthly newsletter featuring program updates, success stories, and upcoming opportunities.',
-                content: `
-                    <p>The Communication Committee is launching a monthly newsletter to keep all employees informed about COS initiatives, new partnerships, and upcoming opportunities.</p>
-                    
-                    <h3>Newsletter Content</h3>
-                    <ul>
-                        <li><strong>Program Highlights:</strong> Featured benefits and services each month</li>
-                        <li><strong>Success Stories:</strong> Employee testimonials and program impact</li>
-                        <li><strong>Upcoming Events:</strong> Sports activities, registration deadlines, and special programs</li>
-                        <li><strong>New Partnerships:</strong> Announcements of new conventions and discounts</li>
-                        <li><strong>Tips & Guides:</strong> How to maximize your COS benefits</li>
-                        <li><strong>Committee Updates:</strong> News from each project team</li>
-                    </ul>
-                    
-                    <h3>Distribution</h3>
-                    <p>The newsletter will be distributed via email on the first Monday of each month. Print copies will be available at common areas for those who prefer physical format.</p>
-                    
-                    <h3>Contribute Content</h3>
-                    <p>Employees are encouraged to share their experiences and suggestions for newsletter content. Contact the Communication Committee to contribute.</p>
-                    
-                    <h3>First Issue</h3>
-                    <p>The inaugural newsletter will be published October 7, 2025, featuring a comprehensive overview of all COS programs and benefits.</p>
-                `
+                title: 'Monthly Newsletter - February Edition Released',
+                date: '2025-02-01',
+                excerpt: 'Check your email for the latest COS Committee newsletter with updates on all programs.',
+                content: 'The February edition of our monthly newsletter has been sent to all members. This month\'s edition includes updates on all ongoing programs, upcoming events, new partnerships, and success stories from our community. If you did not receive the newsletter, please check your spam folder or update your email address in our system. You can also download the newsletter from our website. Stay informed and engaged with all COS activities.'
             },
             {
                 id: 15,
                 category: 'education',
-                categoryName: 'Education & Training',
-                date: 'August 20, 2025',
-                title: 'School Partnerships Expanded to Tétouan',
-                excerpt: 'COS Committee adds four new school partnerships in Tétouan, providing more options for employee families.',
-                content: `
-                    <p>Following successful partnerships with schools in Tangier, the Education & Training Committee has expanded the program to include four prestigious schools in Tétouan.</p>
-                    
-                    <h3>New Partner Schools - Tétouan</h3>
-                    <ul>
-                        <li><strong>Sanabil School:</strong> 15% discount on tuition, French and Arabic curriculum</li>
-                        <li><strong>Aya Al Madina:</strong> 12% discount, bilingual education programs</li>
-                        <li><strong>Additional Partners:</strong> Two more schools being finalized</li>
-                    </ul>
-                    
-                    <h3>Existing Tangier Partnerships</h3>
-                    <ul>
-                        <li>3G School - 20% discount</li>
-                        <li>Alamana School - 15% discount</li>
-                        <li>Al Jabr School - 18% discount</li>
-                        <li>Tingis School - 15% discount</li>
-                        <li>Ibn Machich School - 12% discount</li>
-                        <li>Fajr Al Sabah School - 10% discount</li>
-                    </ul>
-                    
-                    <h3>Enrollment Support</h3>
-                    <p>The committee provides assistance with enrollment procedures, documentation, and coordination with school administrations.</p>
-                    
-                    <h3>Quality Education</h3>
-                    <p>All partner schools have been selected based on academic excellence, facilities, and commitment to student development.</p>
-                `
+                title: 'Professional Development Workshop Series',
+                date: '2024-12-15',
+                excerpt: 'New series of professional development workshops launching in January 2025.',
+                content: 'The COS Committee is launching a new series of professional development workshops in partnership with leading training providers. Topics include leadership skills, project management, communication excellence, and digital literacy. Workshops will be held monthly starting January 2025. COS members can attend at significantly reduced rates. Certificates of completion will be provided. These workshops are designed to enhance your professional skills and career advancement opportunities.'
             }
         ];
 
+        const newsGrid = document.getElementById('newsGrid');
+        const noResults = document.getElementById('noResults');
+        const modal = document.getElementById('newsModal');
+        const closeModal = document.getElementById('closeModal');
+        const categoryButtons = document.querySelectorAll('.filter-btn');
+        const monthFilter = document.getElementById('monthFilter');
+        const yearFilter = document.getElementById('yearFilter');
+        const resetFiltersBtn = document.getElementById('resetFilters');
+
+        let currentCategoryFilter = 'all';
+        let currentMonthFilter = 'all';
+        let currentYearFilter = 'all';
+
         // Render news cards
-        function renderNews(category = 'all') {
-            const newsGrid = document.getElementById('newsGrid');
-            const noResults = document.getElementById('noResults');
+        function renderNews() {
             newsGrid.innerHTML = '';
-            
-            const filteredNews = category === 'all' 
-                ? newsData 
-                : newsData.filter(news => news.category === category);
-            
-            if (filteredNews.length === 0) {
-                noResults.style.display = 'block';
-                return;
-            }
-            
-            noResults.style.display = 'none';
-            
-            filteredNews.forEach(news => {
+            newsArticles.forEach(article => {
                 const card = document.createElement('div');
-                card.className = 'news-card';
-                card.onclick = () => openModal(news);
+                card.className = `news-card ${article.category}`;
+                card.dataset.category = article.category;
+                card.dataset.date = article.date;
+                card.dataset.id = article.id;
+                
+                const articleDate = new Date(article.date);
+                const formattedDate = articleDate.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
                 
                 card.innerHTML = `
-                    <div class="news-header ${news.category}">
-                        ${news.categoryName}
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">${news.date}</div>
-                        <h3 class="news-title">${news.title}</h3>
-                        <p class="news-excerpt">${news.excerpt}</p>
-                        <span class="read-more">Read More →</span>
+                    <div class="news-header">
+                        <div class="news-meta">
+                            <span class="news-date">${formattedDate}</span>
+                            <span class="category-badge ${article.category}">${article.category}</span>
+                        </div>
+                        <h3 class="news-title">${article.title}</h3>
+                        <p class="news-excerpt">${article.excerpt}</p>
+                        <span class="read-more">Read more →</span>
                     </div>
                 `;
                 
+                card.addEventListener('click', () => openModal(article));
                 newsGrid.appendChild(card);
             });
+            
+            filterNews();
         }
 
-        // Filter functionality
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                const category = this.dataset.category;
-                renderNews(category);
+        // Filter news based on category and date
+        function filterNews() {
+            const cards = document.querySelectorAll('.news-card');
+            let visibleCount = 0;
+            
+            cards.forEach(card => {
+                const category = card.dataset.category;
+                const date = card.dataset.date;
+                const [year, month] = date.split('-');
+                const yearMonth = `${year}-${month}`;
+                
+                const categoryMatch = currentCategoryFilter === 'all' || category === currentCategoryFilter;
+                const monthMatch = currentMonthFilter === 'all' || yearMonth === currentMonthFilter;
+                const yearMatch = currentYearFilter === 'all' || year === currentYearFilter;
+                
+                if (categoryMatch && monthMatch && yearMatch) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // Category filter buttons
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                currentCategoryFilter = button.dataset.category;
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                filterNews();
             });
         });
 
-        // Modal functionality
-        function openModal(news) {
-            const modal = document.getElementById('newsModal');
-            const modalHeader = document.getElementById('modalHeader');
-            const modalDate = document.getElementById('modalDate');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalCategory = document.getElementById('modalCategory');
-            const modalBody = document.getElementById('modalBody');
+        monthFilter.addEventListener('change', (e) => {
+            currentMonthFilter = e.target.value;
+            if (currentMonthFilter !== 'all') {
+                currentYearFilter = 'all';
+                yearFilter.value = 'all';
+            }
+            filterNews();
+        });
+
+        yearFilter.addEventListener('change', (e) => {
+            currentYearFilter = e.target.value;
+            if (currentYearFilter !== 'all') {
+                currentMonthFilter = 'all';
+                monthFilter.value = 'all';
+            }
+            filterNews();
+        });
+
+        resetFiltersBtn.addEventListener('click', () => {
+            currentCategoryFilter = 'all';
+            currentMonthFilter = 'all';
+            currentYearFilter = 'all';
             
-            modalHeader.className = `modal-header ${news.category}`;
-            modalDate.textContent = news.date;
-            modalTitle.textContent = news.title;
-            modalCategory.textContent = news.categoryName;
-            modalBody.innerHTML = news.content;
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            categoryButtons[0].classList.add('active');
+            monthFilter.value = 'all';
+            yearFilter.value = 'all';
+            
+            filterNews();
+        });
+
+        // Open modal with article details
+        function openModal(article) {
+            const articleDate = new Date(article.date);
+            const formattedDate = articleDate.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            document.getElementById('modalTitle').textContent = article.title;
+            document.getElementById('modalDate').textContent = formattedDate;
+            const categoryBadge = document.getElementById('modalCategory');
+            categoryBadge.textContent = article.category;
+            categoryBadge.className = `category-badge ${article.category}`;
+            document.getElementById('modalBody').innerHTML = `<p>${article.content}</p>`;
             
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            const modal = document.getElementById('newsModal');
+        // Close modal
+        closeModal.addEventListener('click', () => {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
-        }
+        });
 
-        // Close modal on outside click
-        document.getElementById('newsModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
             }
         });
 
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-        // Initial render
+        // Initialize
         renderNews();
     </script>
 </body>
