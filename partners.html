@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Partners - COS Committee</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1e3a5f;
+            --education: #8b5cf6;
+            --health: #10b981;
+            --sports: #f59e0b;
+            --family: #ef4444;
+            --travel: #3b82f6;
+            --insurance: #ec4899;
+            --communication: #06b6d4;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg-light);
+        }
+        nav {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .back-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+        .back-link:hover { opacity: 0.8; }
+        .logo { font-size: 1.25rem; font-weight: 700; }
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d5a8f 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; opacity: 0.95; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        
+        .filter-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .filter-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border);
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .filter-btn.active {
+            color: white;
+            border-color: transparent;
+        }
+        .filter-btn[data-category="all"].active { background: var(--primary); }
+        .filter-btn[data-category="education"].active { background: var(--education); }
+        .filter-btn[data-category="health"].active { background: var(--health); }
+        .filter-btn[data-category="sports"].active { background: var(--sports); }
+        .filter-btn[data-category="family"].active { background: var(--family); }
+        .filter-btn[data-category="travel"].active { background: var(--travel); }
+        .filter-btn[data-category="insurance"].active { background: var(--insurance); }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        .partner-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--border);
+        }
+        .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        .partner-card.education { border-top-color: var(--education); }
+        .partner-card.health { border-top-color: var(--health); }
+        .partner-card.sports { border-top-color: var(--sports); }
+        .partner-card.family { border-top-color: var(--family); }
+        .partner-card.travel { border-top-color: var(--travel); }
+        .partner-card.insurance { border-top-color: var(--insurance); }
+        
+        .partner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+        .partner-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .category-badge {
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .category-badge.education { background: var(--education); }
+        .category-badge.health { background: var(--health); }
+        .category-badge.sports { background: var(--sports); }
+        .category-badge.family { background: var(--family); }
+        .category-badge.travel { background: var(--travel); }
+        .category-badge.insurance { background: var(--insurance); }
+        
+        .partner-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .partner-services {
+            margin-bottom: 1.5rem;
+        }
+        .partner-services h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .services-list {
+            list-style: none;
+            padding: 0;
+        }
+        .services-list li {
+            padding: 0.4rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        .services-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--health);
+            font-weight: bold;
+        }
+        .partner-contact {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .contact-item strong {
+            color: var(--text);
+            min-width: 70px;
+        }
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+        .partner-card.hidden {
+            display: none;
+        }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+            .filter-buttons {
+                flex-direction: column;
+            }
+            .filter-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <div class="logo">COS Committee</div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Our Partners</h1>
+        <p>Trusted organizations providing quality services to COS members</p>
+    </header>
+
+    <main class="container">
+        <section class="filter-section">
+            <div class="filter-title">Filter by Category</div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Partners</button>
+                <button class="filter-btn" data-category="education">Education</button>
+                <button class="filter-btn" data-category="health">Health</button>
+                <button class="filter-btn" data-category="sports">Sports</button>
+                <button class="filter-btn" data-category="family">Family</button>
+                <button class="filter-btn" data-category="travel">Travel</button>
+                <button class="filter-btn" data-category="insurance">Insurance</button>
+            </div>
+        </section>
+
+        <div class="partners-grid" id="partnersGrid">
+            <!-- Education Partners -->
+            <div class="partner-card education" data-category="education">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">AMIDEAST</h3>
+                        <div class="partner-location">📍 Rabat, Morocco</div>
+                    </div>
+                    <span class="category-badge education">Education</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>English language courses (all levels)</li>
+                        <li>TOEFL & IELTS preparation</li>
+                        <li>Business English training</li>
+                        <li>Academic counseling</li>
+                        <li>Professional development programs</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 537 67 50 75</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:morocco@amideast.org">morocco@amideast.org</a></div>
+                    <div class="contact-item"><strong>Website:</strong> <a href="https://www.amideast.org" target="_blank">www.amideast.org</a></div>
+                </div>
+            </div>
+
+            <div class="partner-card education" data-category="education">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">British Council</h3>
+                        <div class="partner-location">📍 Casablanca, Morocco</div>
+                    </div>
+                    <span class="category-badge education">Education</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>English language courses</li>
+                        <li>IELTS testing & preparation</li>
+                        <li>Professional English training</li>
+                        <li>Young learners programs</li>
+                        <li>Cultural exchange programs</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 522 27 96 50</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:info@ma.britishcouncil.org">info@ma.britishcouncil.org</a></div>
+                    <div class="contact-item"><strong>Website:</strong> <a href="https://www.britishcouncil.ma" target="_blank">www.britishcouncil.ma</a></div>
+                </div>
+            </div>
+
+            <div class="partner-card education" data-category="education">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Institut Français</h3>
+                        <div class="partner-location">📍 Tangier, Morocco</div>
+                    </div>
+                    <span class="category-badge education">Education</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>French language courses (A1-C2)</li>
+                        <li>DELF & DALF exam preparation</li>
+                        <li>Business French training</li>
+                        <li>Cultural workshops</li>
+                        <li>Library & media center access</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 94 10 54</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:contact@iftanger.org">contact@iftanger.org</a></div>
+                    <div class="contact-item"><strong>Website:</strong> <a href="https://www.if-maroc.org" target="_blank">www.if-maroc.org</a></div>
+                </div>
+            </div>
+
+            <div class="partner-card education" data-category="education">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Berlitz</h3>
+                        <div class="partner-location">📍 Casablanca, Morocco</div>
+                    </div>
+                    <span class="category-badge education">Education</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Multi-language courses (English, French, Spanish, German)</li>
+                        <li>Corporate language training</li>
+                        <li>Online & in-person classes</li>
+                        <li>Customized business programs</li>
+                        <li>Cultural training</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 522 36 20 00</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:casablanca@berlitz.ma">casablanca@berlitz.ma</a></div>
+                    <div class="contact-item"><strong>Website:</strong> <a href="https://www.berlitz.com" target="_blank">www.berlitz.com</a></div>
+                </div>
+            </div>
+
+            <!-- Health Partners -->
+            <div class="partner-card health" data-category="health">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Clinique Al Madina</h3>
+                        <div class="partner-location">📍 Avenue Mohamed V, Tangier</div>
+                    </div>
+                    <span class="category-badge health">Health</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>General medicine consultations</li>
+                        <li>Specialist consultations (cardiology, pediatrics, etc.)</li>
+                        <li>Laboratory tests & diagnostics</li>
+                        <li>Radiology & imaging services</li>
+                        <li>Emergency care</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 94 32 10</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:contact@clinique-almadina.ma">contact@clinique-almadina.ma</a></div>
+                    <div class="contact-item"><strong>Hours:</strong> 24/7 Emergency</div>
+                </div>
+            </div>
+
+            <div class="partner-card health" data-category="health">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Clinique Tanger Med</h3>
+                        <div class="partner-location">📍 Zone Franche, Tangier</div>
+                    </div>
+                    <span class="category-badge health">Health</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Occupational health services</li>
+                        <li>Preventive medicine</li>
+                        <li>Medical check-ups</li>
+                        <li>Vaccination programs</li>
+                        <li>Specialist consultations</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 39 40 00</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:info@clinique-tangermed.ma">info@clinique-tangermed.ma</a></div>
+                    <div class="contact-item"><strong>Hours:</strong> Mon-Fri 8:00-18:00</div>
+                </div>
+            </div>
+
+            <div class="partner-card health" data-category="health">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Clinique Al Andalous</h3>
+                        <div class="partner-location">📍 Boulevard Pasteur, Tangier</div>
+                    </div>
+                    <span class="category-badge health">Health</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Multi-specialty consultations</li>
+                        <li>Surgery & operating rooms</li>
+                        <li>Maternity services</li>
+                        <li>Intensive care unit</li>
+                        <li>Pharmacy services</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 93 28 00</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:contact@alandalous.ma">contact@alandalous.ma</a></div>
+                    <div class="contact-item"><strong>Hours:</strong> 24/7 Services</div>
+                </div>
+            </div>
+
+            <div class="partner-card health" data-category="health">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Clinique Chifae</h3>
+                        <div class="partner-location">📍 Rue de la Liberté, Tangier</div>
+                    </div>
+                    <span class="category-badge health">Health</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>General & specialized consultations</li>
+                        <li>Dental care</li>
+                        <li>Physiotherapy</li>
+                        <li>Medical imaging</li>
+                        <li>Laboratory services</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 94 15 20</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:info@clinique-chifae.ma">info@clinique-chifae.ma</a></div>
+                    <div class="contact-item"><strong>Hours:</strong> Mon-Sat 9:00-19:00</div>
+                </div>
+            </div>
+
+            <!-- Sports Partners -->
+            <div class="partner-card sports" data-category="sports">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Fitness Plus Tangier</h3>
+                        <div class="partner-location">📍 City Center, Tangier</div>
+                    </div>
+                    <span class="category-badge sports">Sports</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Modern gym equipment</li>
+                        <li>Group fitness classes</li>
+                        <li>Personal training sessions</li>
+                        <li>Swimming pool access</li>
+                        <li>Sauna & spa facilities</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 37 20 00</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:info@fitnessplus.ma">info@fitnessplus.ma</a></div>
+                    <div class="contact-item"><strong>Hours:</strong> Mon-Sun 6:00-22:00</div>
+                </div>
+            </div>
+
+            <div class="partner-card sports" data-category="sports">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Royal Tennis Club</h3>
+                        <div class="partner-location">📍 Malabata, Tangier</div>
+                    </div>
+                    <span class="category-badge sports">Sports</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Tennis courts (indoor & outdoor)</li>
+                        <li>Professional coaching</li>
+                        <li>Tournament organization</li>
+                        <li>Junior tennis programs</li>
+                        <li>Equipment rental</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 32 45 67</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:contact@royaltennisclub.ma">contact@royaltennisclub.ma</a></div>
+                    <div class="contact-item"><strong>Hours:</strong> Daily 7:00-21:00</div>
+                </div>
+            </div>
+
+            <div class="partner-card sports" data-category="sports">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Aqua Sport Center</h3>
+                        <div class="partner-location">📍 Marina Bay, Tangier</div>
+                    </div>
+                    <span class="category-badge sports">Sports</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Olympic-size swimming pool</li>
+                        <li>Swimming lessons (all ages)</li>
+                        <li>Aqua aerobics classes</li>
+                        <li>Water polo facilities</li>
+                        <li>Lifeguard training</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 33 88 90</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:info@aquasport.ma">info@aquasport.ma</a></div>
+                    <div class="contact-item"><strong>Hours:</strong> Daily 6:00-20:00</div>
+                </div>
+            </div>
+
+            <!-- Family Partners -->
+            <div class="partner-card family" data-category="family">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Sunny Days Summer Camp</h3>
+                        <div class="partner-location">📍 Cap Spartel, Tangier</div>
+                    </div>
+                    <span class="category-badge family">Family</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Summer camp programs (ages 6-16)</li>
+                        <li>Educational activities</li>
+                        <li>Sports & outdoor adventures</li>
+                        <li>Arts & crafts workshops</li>
+                        <li>Transportation included</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 33 45 20</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:info@sunnydayscamp.ma">info@sunnydayscamp.ma</a></div>
+                    <div class="contact-item"><strong>Season:</strong> June - August</div>
+                </div>
+            </div>
+
+            <div class="partner-card family" data-category="family">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Little Stars Daycare</h3>
+                        <div class="partner-location">📍 California, Tangier</div>
+                    </div>
+                    <span class="category-badge family">Family</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Full-day childcare (ages 3 months - 5 years)</li>
+                        <li>Early childhood education</li>
+                        <li>Nutritious meals provided</li>
+                        <li>Bilingual environment (French/Arabic)</li>
+                        <li>Flexible scheduling options</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 31 22 33</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:contact@littlestars.ma">contact@littlestars.ma</a></div>
+                    <div class="contact-item"><strong>Hours:</strong> Mon-Fri 7:00-18:00</div>
+                </div>
+            </div>
+
+            <div class="partner-card family" data-category="family">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Family Fun Park</h3>
+                        <div class="partner-location">📍 Route de Rabat, Tangier</div>
+                    </div>
+                    <span class="category-badge family">Family</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Indoor play areas</li>
+                        <li>Birthday party packages</li>
+                        <li>Family entertainment events</li>
+                        <li>Café & restaurant</li>
+                        <li>Special COS member discounts</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 35 67 89</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:info@familyfunpark.ma">info@familyfunpark.ma</a></div>
+                    <div class="contact-item"><strong>Hours:</strong> Daily 10:00-20:00</div>
+                </div>
+            </div>
+
+            <!-- Travel Partners -->
+            <div class="partner-card travel" data-category="travel">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Omra Travel Agency</h3>
+                        <div class="partner-location">📍 Avenue Hassan II, Tangier</div>
+                    </div>
+                    <span class="category-badge travel">Travel</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Omra pilgrimage packages</li>
+                        <li>Visa assistance</li>
+                        <li>Flight & hotel bookings</li>
+                        <li>Guided tours in Mecca & Medina</li>
+                        <li>24/7 support during travel</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 94 56 78</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:info@omratravel.ma">info@omratravel.ma</a></div>
+                    <div class="contact-item"><strong>Website:</strong> <a href="https://www.omratravel.ma" target="_blank">www.omratravel.ma</a></div>
+                </div>
+            </div>
+
+            <div class="partner-card travel" data-category="travel">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Discover Morocco Tours</h3>
+                        <div class="partner-location">📍 Grand Socco, Tangier</div>
+                    </div>
+                    <span class="category-badge travel">Travel</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Domestic travel packages</li>
+                        <li>Weekend getaways</li>
+                        <li>Cultural tours</li>
+                        <li>Desert excursions</li>
+                        <li>Group & family discounts</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 93 12 34</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:contact@discovermorocco.ma">contact@discovermorocco.ma</a></div>
+                    <div class="contact-item"><strong>Website:</strong> <a href="https://www.discovermorocco.ma" target="_blank">www.discovermorocco.ma</a></div>
+                </div>
+            </div>
+
+            <!-- Insurance Partners -->
+            <div class="partner-card insurance" data-category="insurance">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">Sanlam Agency</h3>
+                        <div class="partner-location">📍 Boulevard Mohammed VI, Tangier</div>
+                    </div>
+                    <span class="category-badge insurance">Insurance</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Auto insurance (comprehensive coverage)</li>
+                        <li>Collision & theft protection</li>
+                        <li>Third-party liability</li>
+                        <li>Roadside assistance 24/7</li>
+                        <li>Fast claims processing</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 94 88 00</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:tangier@sanlam.ma">tangier@sanlam.ma</a></div>
+                    <div class="contact-item"><strong>Website:</strong> <a href="https://www.sanlam.ma" target="_blank">www.sanlam.ma</a></div>
+                </div>
+            </div>
+
+            <div class="partner-card insurance" data-category="insurance">
+                <div class="partner-header">
+                    <div>
+                        <h3 class="partner-name">AXA Assurance</h3>
+                        <div class="partner-location">📍 Avenue des FAR, Tangier</div>
+                    </div>
+                    <span class="category-badge insurance">Insurance</span>
+                </div>
+                <div class="partner-services">
+                    <h4>Services Provided</h4>
+                    <ul class="services-list">
+                        <li>Life insurance policies</li>
+                        <li>Health insurance coverage</li>
+                        <li>Property insurance</li>
+                        <li>Travel insurance</li>
+                        <li>Pension & retirement plans</li>
+                    </ul>
+                </div>
+                <div class="partner-contact">
+                    <div class="contact-item"><strong>Phone:</strong> +212 539 32 77 88</div>
+                    <div class="contact-item"><strong>Email:</strong> <a href="mailto:tangier@axa.ma">tangier@axa.ma</a></div>
+                    <div class="contact-item"><strong>Website:</strong> <a href="https://www.axa.ma" target="_blank">www.axa.ma</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            No partners found in this category.
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 COS Committee - APM Terminals MedPort Tangier | <a href="index.html">Back to Home</a></p>
+    </footer>
+
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const partnerCards = document.querySelectorAll('.partner-card');
+        const noResults = document.getElementById('noResults');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.dataset.category;
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter cards
+                let visibleCount = 0;
+                partnerCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+                
+                // Show/hide no results message
+                noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
